@@ -1,0 +1,509 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F13C88D1BA23D3200A0713D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C88C1BA23D3200A0713D /* AppDelegate.swift */; };
+		2F13C88F1BA23D3200A0713D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C88E1BA23D3200A0713D /* ViewController.swift */; };
+		2F13C8921BA23D3200A0713D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F13C8901BA23D3200A0713D /* Main.storyboard */; };
+		2F13C8941BA23D3200A0713D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F13C8931BA23D3200A0713D /* Assets.xcassets */; };
+		2F13C8971BA23D3200A0713D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F13C8951BA23D3200A0713D /* LaunchScreen.storyboard */; };
+		2F13C8A21BA23D3200A0713D /* EVChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8A11BA23D3200A0713D /* EVChatTests.swift */; };
+		2F13C8AD1BA23D3200A0713D /* EVChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8AC1BA23D3200A0713D /* EVChatUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2F13C89E1BA23D3200A0713D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F13C8811BA23D3200A0713D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F13C8881BA23D3200A0713D;
+			remoteInfo = EVChat;
+		};
+		2F13C8A91BA23D3200A0713D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F13C8811BA23D3200A0713D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F13C8881BA23D3200A0713D;
+			remoteInfo = EVChat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2F13C8891BA23D3200A0713D /* EVChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EVChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F13C88C1BA23D3200A0713D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2F13C88E1BA23D3200A0713D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2F13C8911BA23D3200A0713D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2F13C8931BA23D3200A0713D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2F13C8961BA23D3200A0713D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2F13C8981BA23D3200A0713D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F13C89D1BA23D3200A0713D /* EVChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EVChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F13C8A11BA23D3200A0713D /* EVChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVChatTests.swift; sourceTree = "<group>"; };
+		2F13C8A31BA23D3200A0713D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F13C8A81BA23D3200A0713D /* EVChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EVChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F13C8AC1BA23D3200A0713D /* EVChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVChatUITests.swift; sourceTree = "<group>"; };
+		2F13C8AE1BA23D3200A0713D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F13C8861BA23D3200A0713D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F13C89A1BA23D3200A0713D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F13C8A51BA23D3200A0713D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F13C8801BA23D3200A0713D = {
+			isa = PBXGroup;
+			children = (
+				2F13C88B1BA23D3200A0713D /* EVChat */,
+				2F13C8A01BA23D3200A0713D /* EVChatTests */,
+				2F13C8AB1BA23D3200A0713D /* EVChatUITests */,
+				2F13C88A1BA23D3200A0713D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F13C88A1BA23D3200A0713D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F13C8891BA23D3200A0713D /* EVChat.app */,
+				2F13C89D1BA23D3200A0713D /* EVChatTests.xctest */,
+				2F13C8A81BA23D3200A0713D /* EVChatUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F13C88B1BA23D3200A0713D /* EVChat */ = {
+			isa = PBXGroup;
+			children = (
+				2F13C88C1BA23D3200A0713D /* AppDelegate.swift */,
+				2F13C88E1BA23D3200A0713D /* ViewController.swift */,
+				2F13C8901BA23D3200A0713D /* Main.storyboard */,
+				2F13C8931BA23D3200A0713D /* Assets.xcassets */,
+				2F13C8951BA23D3200A0713D /* LaunchScreen.storyboard */,
+				2F13C8981BA23D3200A0713D /* Info.plist */,
+			);
+			path = EVChat;
+			sourceTree = "<group>";
+		};
+		2F13C8A01BA23D3200A0713D /* EVChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				2F13C8A11BA23D3200A0713D /* EVChatTests.swift */,
+				2F13C8A31BA23D3200A0713D /* Info.plist */,
+			);
+			path = EVChatTests;
+			sourceTree = "<group>";
+		};
+		2F13C8AB1BA23D3200A0713D /* EVChatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2F13C8AC1BA23D3200A0713D /* EVChatUITests.swift */,
+				2F13C8AE1BA23D3200A0713D /* Info.plist */,
+			);
+			path = EVChatUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F13C8881BA23D3200A0713D /* EVChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F13C8B11BA23D3200A0713D /* Build configuration list for PBXNativeTarget "EVChat" */;
+			buildPhases = (
+				2F13C8851BA23D3200A0713D /* Sources */,
+				2F13C8861BA23D3200A0713D /* Frameworks */,
+				2F13C8871BA23D3200A0713D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EVChat;
+			productName = EVChat;
+			productReference = 2F13C8891BA23D3200A0713D /* EVChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2F13C89C1BA23D3200A0713D /* EVChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F13C8B41BA23D3200A0713D /* Build configuration list for PBXNativeTarget "EVChatTests" */;
+			buildPhases = (
+				2F13C8991BA23D3200A0713D /* Sources */,
+				2F13C89A1BA23D3200A0713D /* Frameworks */,
+				2F13C89B1BA23D3200A0713D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F13C89F1BA23D3200A0713D /* PBXTargetDependency */,
+			);
+			name = EVChatTests;
+			productName = EVChatTests;
+			productReference = 2F13C89D1BA23D3200A0713D /* EVChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2F13C8A71BA23D3200A0713D /* EVChatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F13C8B71BA23D3200A0713D /* Build configuration list for PBXNativeTarget "EVChatUITests" */;
+			buildPhases = (
+				2F13C8A41BA23D3200A0713D /* Sources */,
+				2F13C8A51BA23D3200A0713D /* Frameworks */,
+				2F13C8A61BA23D3200A0713D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F13C8AA1BA23D3200A0713D /* PBXTargetDependency */,
+			);
+			name = EVChatUITests;
+			productName = EVChatUITests;
+			productReference = 2F13C8A81BA23D3200A0713D /* EVChatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F13C8811BA23D3200A0713D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "EV Technologies Inc.";
+				TargetAttributes = {
+					2F13C8881BA23D3200A0713D = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = LD7DY78L8K;
+					};
+					2F13C89C1BA23D3200A0713D = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = LD7DY78L8K;
+						TestTargetID = 2F13C8881BA23D3200A0713D;
+					};
+					2F13C8A71BA23D3200A0713D = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = LD7DY78L8K;
+						TestTargetID = 2F13C8881BA23D3200A0713D;
+					};
+				};
+			};
+			buildConfigurationList = 2F13C8841BA23D3200A0713D /* Build configuration list for PBXProject "EVChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2F13C8801BA23D3200A0713D;
+			productRefGroup = 2F13C88A1BA23D3200A0713D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F13C8881BA23D3200A0713D /* EVChat */,
+				2F13C89C1BA23D3200A0713D /* EVChatTests */,
+				2F13C8A71BA23D3200A0713D /* EVChatUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F13C8871BA23D3200A0713D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F13C8971BA23D3200A0713D /* LaunchScreen.storyboard in Resources */,
+				2F13C8941BA23D3200A0713D /* Assets.xcassets in Resources */,
+				2F13C8921BA23D3200A0713D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F13C89B1BA23D3200A0713D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F13C8A61BA23D3200A0713D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F13C8851BA23D3200A0713D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F13C88F1BA23D3200A0713D /* ViewController.swift in Sources */,
+				2F13C88D1BA23D3200A0713D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F13C8991BA23D3200A0713D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F13C8A21BA23D3200A0713D /* EVChatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F13C8A41BA23D3200A0713D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F13C8AD1BA23D3200A0713D /* EVChatUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F13C89F1BA23D3200A0713D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F13C8881BA23D3200A0713D /* EVChat */;
+			targetProxy = 2F13C89E1BA23D3200A0713D /* PBXContainerItemProxy */;
+		};
+		2F13C8AA1BA23D3200A0713D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F13C8881BA23D3200A0713D /* EVChat */;
+			targetProxy = 2F13C8A91BA23D3200A0713D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2F13C8901BA23D3200A0713D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F13C8911BA23D3200A0713D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2F13C8951BA23D3200A0713D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F13C8961BA23D3200A0713D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2F13C8AF1BA23D3200A0713D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2F13C8B01BA23D3200A0713D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2F13C8B21BA23D3200A0713D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EVChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = EV.EVChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2F13C8B31BA23D3200A0713D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = EVChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = EV.EVChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2F13C8B51BA23D3200A0713D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EVChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = EV.EVChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EVChat.app/EVChat";
+			};
+			name = Debug;
+		};
+		2F13C8B61BA23D3200A0713D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EVChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = EV.EVChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EVChat.app/EVChat";
+			};
+			name = Release;
+		};
+		2F13C8B81BA23D3200A0713D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EVChatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = EV.EVChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = EVChat;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		2F13C8B91BA23D3200A0713D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EVChatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = EV.EVChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = EVChat;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F13C8841BA23D3200A0713D /* Build configuration list for PBXProject "EVChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F13C8AF1BA23D3200A0713D /* Debug */,
+				2F13C8B01BA23D3200A0713D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F13C8B11BA23D3200A0713D /* Build configuration list for PBXNativeTarget "EVChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F13C8B21BA23D3200A0713D /* Debug */,
+				2F13C8B31BA23D3200A0713D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2F13C8B41BA23D3200A0713D /* Build configuration list for PBXNativeTarget "EVChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F13C8B51BA23D3200A0713D /* Debug */,
+				2F13C8B61BA23D3200A0713D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2F13C8B71BA23D3200A0713D /* Build configuration list for PBXNativeTarget "EVChatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F13C8B81BA23D3200A0713D /* Debug */,
+				2F13C8B91BA23D3200A0713D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2F13C8811BA23D3200A0713D /* Project object */;
+}
