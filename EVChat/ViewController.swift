@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var SegmentControl: UISegmentedControl!
     @IBOutlet var SwipeRight: UISwipeGestureRecognizer!
     @IBOutlet var SwipeLeft: UISwipeGestureRecognizer!
+    @IBOutlet weak var AddButton: UIButton!
+    
     
     
     override func viewDidLoad() {
@@ -56,7 +58,17 @@ class ViewController: UIViewController {
         SegmentControl.selectedSegmentIndex = 1
     }
     
-    
+    // Mark: add button action
+    @IBAction func addButtonAction(sender: AnyObject) {
+        if SegmentControl.selectedSegmentIndex == 0
+        {
+            self.performSegueWithIdentifier("SelectFriends", sender: self)
+        }
+        else
+        {
+            self.performSegueWithIdentifier("PushInsides", sender: self)
+        }
+    }
 
 }
 
