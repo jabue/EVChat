@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="305" y="334"/>
         </scene>
-        <!--Add Friends-->
+        <!--Add Friend-->
         <scene sceneID="ZAQ-l5-otK">
             <objects>
-                <viewController id="hI5-Ps-eKo" customClass="AddFriends" customModule="EVChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hI5-Ps-eKo" customClass="AddFriend" customModule="EVChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nnk-R2-x8v"/>
                         <viewControllerLayoutGuide type="bottom" id="2VQ-bn-S6c"/>

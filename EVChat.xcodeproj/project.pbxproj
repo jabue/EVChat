@@ -16,6 +16,7 @@
 		2F13C8AD1BA23D3200A0713D /* EVChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8AC1BA23D3200A0713D /* EVChatUITests.swift */; };
 		2F13C8BB1BA23E7700A0713D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8BA1BA23E7700A0713D /* ChatViewController.swift */; };
 		2F13C8BD1BA23F8200A0713D /* InsideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8BC1BA23F8200A0713D /* InsideViewController.swift */; };
+		2FF3767A1BA791660012AB0E /* AddFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF376791BA791660012AB0E /* AddFriend.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		2F13C8AE1BA23D3200A0713D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F13C8BA1BA23E7700A0713D /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		2F13C8BC1BA23F8200A0713D /* InsideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideViewController.swift; sourceTree = "<group>"; };
+		2FF376791BA791660012AB0E /* AddFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriend.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				2F13C8981BA23D3200A0713D /* Info.plist */,
 				2F13C8BA1BA23E7700A0713D /* ChatViewController.swift */,
 				2F13C8BC1BA23F8200A0713D /* InsideViewController.swift */,
+				2FF376791BA791660012AB0E /* AddFriend.swift */,
 			);
 			path = EVChat;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FF3767A1BA791660012AB0E /* AddFriend.swift in Sources */,
 				2F13C8BD1BA23F8200A0713D /* InsideViewController.swift in Sources */,
 				2F13C88F1BA23D3200A0713D /* ViewController.swift in Sources */,
 				2F13C8BB1BA23E7700A0713D /* ChatViewController.swift in Sources */,
