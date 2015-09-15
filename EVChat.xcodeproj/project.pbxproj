@@ -16,6 +16,7 @@
 		2F13C8AD1BA23D3200A0713D /* EVChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8AC1BA23D3200A0713D /* EVChatUITests.swift */; };
 		2F13C8BB1BA23E7700A0713D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8BA1BA23E7700A0713D /* ChatViewController.swift */; };
 		2F13C8BD1BA23F8200A0713D /* InsideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8BC1BA23F8200A0713D /* InsideViewController.swift */; };
+		2F6F52C11BA895FC0091E3AF /* PushInside.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F52C01BA895FC0091E3AF /* PushInside.swift */; };
 		2FF3767C1BA79E850012AB0E /* AddFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3767B1BA79E850012AB0E /* AddFriends.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		2F13C8AE1BA23D3200A0713D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F13C8BA1BA23E7700A0713D /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		2F13C8BC1BA23F8200A0713D /* InsideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideViewController.swift; sourceTree = "<group>"; };
+		2F6F52C01BA895FC0091E3AF /* PushInside.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushInside.swift; sourceTree = "<group>"; };
 		2FF3767B1BA79E850012AB0E /* AddFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriends.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 				2F13C8BA1BA23E7700A0713D /* ChatViewController.swift */,
 				2F13C8BC1BA23F8200A0713D /* InsideViewController.swift */,
 				2FF3767B1BA79E850012AB0E /* AddFriends.swift */,
+				2F6F52C01BA895FC0091E3AF /* PushInside.swift */,
 			);
 			path = EVChat;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F13C8BD1BA23F8200A0713D /* InsideViewController.swift in Sources */,
+				2F6F52C11BA895FC0091E3AF /* PushInside.swift in Sources */,
 				2F13C88F1BA23D3200A0713D /* ViewController.swift in Sources */,
 				2F13C8BB1BA23E7700A0713D /* ChatViewController.swift in Sources */,
 				2F13C88D1BA23D3200A0713D /* AppDelegate.swift in Sources */,

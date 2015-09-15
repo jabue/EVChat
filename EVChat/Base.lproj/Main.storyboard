@@ -139,7 +139,7 @@
                                 <rect key="frame" x="27" y="28" width="50" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="WJU-gH-yxi"/>
+                                    <action selector="BtnCancelAction:" destination="hI5-Ps-eKo" eventType="touchUpInside" id="Lk7-44-Aye"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1q-vH-5Yw">
@@ -150,7 +150,7 @@
                                 <rect key="frame" x="20" y="60" width="560" height="532"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vqw-VE-tr7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendCell" id="vqw-VE-tr7">
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vqw-VE-tr7" id="J1r-Je-PQ5">
@@ -181,15 +181,18 @@
                             <constraint firstItem="ipt-oQ-ohw" firstAttribute="centerX" secondItem="bbn-zM-BXr" secondAttribute="centerX" id="y0K-t0-jaD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="BtnCancel" destination="E1X-ZN-M1A" id="cZ4-Cc-Ool"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vcg-K5-i9G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-406" y="1086"/>
+            <point key="canvasLocation" x="-154" y="1086"/>
         </scene>
-        <!--View Controller-->
+        <!--Push Inside-->
         <scene sceneID="XK6-Lg-cdR">
             <objects>
-                <viewController id="CSR-HT-P3t" sceneMemberID="viewController">
+                <viewController id="CSR-HT-P3t" customClass="PushInside" customModule="EVChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u6E-SM-fYd"/>
                         <viewControllerLayoutGuide type="bottom" id="RaJ-vn-j5D"/>
@@ -202,7 +205,7 @@
                                 <rect key="frame" x="30" y="28" width="61" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="TBA-db-Ux6"/>
+                                    <action selector="btnCancelPress:" destination="CSR-HT-P3t" eventType="touchUpInside" id="B0Y-Vk-Zj2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Something New Is Coming!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MR-PU-aoO">
@@ -220,10 +223,13 @@
                             <constraint firstItem="uH8-UF-a3L" firstAttribute="top" secondItem="u6E-SM-fYd" secondAttribute="bottom" constant="8" id="pwe-dF-ENN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="BtnCancel" destination="uH8-UF-a3L" id="VGV-Yj-eqD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXQ-C7-5GS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="335" y="1086"/>
+            <point key="canvasLocation" x="471" y="1086"/>
         </scene>
         <!--Inside View Controller-->
         <scene sceneID="UMF-ey-hje">
@@ -296,7 +302,4 @@
             <point key="canvasLocation" x="1090" y="55"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="WJU-gH-yxi"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -10,6 +10,9 @@ import UIKit
 
 class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
+    
+    @IBOutlet weak var BtnCancel: UIButton!
+    
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +36,18 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "MyTestCell")
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "FriendCell")
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         
+    }
+    
+    //MARK: Cancel Button
+    @IBAction func BtnCancelAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }
