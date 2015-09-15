@@ -1,5 +1,5 @@
 //
-//  AddFriend.swift
+//  AddFViewController.swift
 //  EVChat
 //
 //  Created by EV Technologies Inc. on 2015-09-14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddFriend: UITableViewController {
+class AddFViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -18,4 +18,5 @@ class AddFriend: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 }

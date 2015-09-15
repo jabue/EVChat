@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="305" y="334"/>
         </scene>
-        <!--Add Friend-->
+        <!--Add Friends-->
         <scene sceneID="ZAQ-l5-otK">
             <objects>
-                <viewController id="hI5-Ps-eKo" customClass="AddFriend" customModule="EVChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hI5-Ps-eKo" customClass="AddFriends" customModule="EVChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nnk-R2-x8v"/>
                         <viewControllerLayoutGuide type="bottom" id="2VQ-bn-S6c"/>
@@ -146,13 +146,39 @@
                                 <rect key="frame" x="528" y="28" width="46" height="30"/>
                                 <state key="normal" title="Done"/>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rhx-pb-9ho">
+                                <rect key="frame" x="20" y="60" width="560" height="532"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vqw-VE-tr7">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vqw-VE-tr7" id="J1r-Je-PQ5">
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Select Friends" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipt-oQ-ohw">
+                                <rect key="frame" x="243" y="31" width="115" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="E1X-ZN-M1A" firstAttribute="leading" secondItem="bbn-zM-BXr" secondAttribute="leadingMargin" constant="7" id="AHm-ti-pfq"/>
+                            <constraint firstItem="ipt-oQ-ohw" firstAttribute="top" secondItem="Nnk-R2-x8v" secondAttribute="bottom" constant="11" id="CYp-4h-pas"/>
+                            <constraint firstItem="Rhx-pb-9ho" firstAttribute="trailing" secondItem="bbn-zM-BXr" secondAttribute="trailingMargin" id="FWD-pI-Osz"/>
+                            <constraint firstItem="2VQ-bn-S6c" firstAttribute="top" secondItem="Rhx-pb-9ho" secondAttribute="bottom" constant="8" id="Qt7-rg-4Re"/>
+                            <constraint firstItem="Rhx-pb-9ho" firstAttribute="leading" secondItem="bbn-zM-BXr" secondAttribute="leadingMargin" id="TWy-Vj-Odo"/>
+                            <constraint firstItem="Rhx-pb-9ho" firstAttribute="top" secondItem="I1q-vH-5Yw" secondAttribute="bottom" constant="2" id="bSc-bs-fOe"/>
                             <constraint firstItem="E1X-ZN-M1A" firstAttribute="top" secondItem="Nnk-R2-x8v" secondAttribute="bottom" constant="8" id="cdI-zK-mWK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="I1q-vH-5Yw" secondAttribute="trailing" constant="6" id="iUH-dU-ka4"/>
                             <constraint firstItem="I1q-vH-5Yw" firstAttribute="top" secondItem="Nnk-R2-x8v" secondAttribute="bottom" constant="8" id="iwJ-Ms-mTh"/>
+                            <constraint firstItem="ipt-oQ-ohw" firstAttribute="centerX" secondItem="bbn-zM-BXr" secondAttribute="centerX" id="y0K-t0-jaD"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -197,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXQ-C7-5GS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="471" y="1086"/>
+            <point key="canvasLocation" x="335" y="1086"/>
         </scene>
         <!--Inside View Controller-->
         <scene sceneID="UMF-ey-hje">
