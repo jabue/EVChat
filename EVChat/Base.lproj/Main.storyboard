@@ -183,11 +183,12 @@
                     </view>
                     <connections>
                         <outlet property="BtnCancel" destination="E1X-ZN-M1A" id="cZ4-Cc-Ool"/>
+                        <outlet property="tableView" destination="Rhx-pb-9ho" id="2Zs-1T-IJh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vcg-K5-i9G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-154" y="1086"/>
+            <point key="canvasLocation" x="1090" y="1390"/>
         </scene>
         <!--Push Inside-->
         <scene sceneID="XK6-Lg-cdR">
@@ -229,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MXQ-C7-5GS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="471" y="1086"/>
+            <point key="canvasLocation" x="305" y="1390"/>
         </scene>
         <!--Inside View Controller-->
         <scene sceneID="UMF-ey-hje">
