@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol SelectMultipleViewControllerDelegate {
+    func didSelectMultipleUsers(selectedUsers: [String]!)
+}
+
 class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     
+    @IBOutlet weak var BtnDone: UIButton!
     @IBOutlet weak var BtnCancel: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    var delegate: SelectMultipleViewControllerDelegate!
     
     // test friends Array
     var friendsArray = ["Kris", "Jabue", "Tom"]
@@ -74,9 +80,26 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
     
-    //MARK: Cancel Button
+    //MARK: Button Action
     @IBAction func BtnCancelAction(sender: AnyObject) {
+        // dismiss the view
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    @IBAction func btnDonePress(sender: AnyObject) {
+        // none is selected
+        if selectedFriends.count == 0
+        {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        else
+        {
+            self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                // pass the selectedfriends to next view through delegate
+                self.delegate.didSelectMultipleUsers(self.selectedFriends)
+            })
+        }
+    }
+    
     
 }

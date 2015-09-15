@@ -145,6 +145,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1q-vH-5Yw">
                                 <rect key="frame" x="528" y="28" width="46" height="30"/>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="btnDonePress:" destination="hI5-Ps-eKo" eventType="touchUpInside" id="boB-j4-Cva"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rhx-pb-9ho">
                                 <rect key="frame" x="20" y="60" width="560" height="532"/>
@@ -183,6 +186,7 @@
                     </view>
                     <connections>
                         <outlet property="BtnCancel" destination="E1X-ZN-M1A" id="cZ4-Cc-Ool"/>
+                        <outlet property="BtnDone" destination="I1q-vH-5Yw" id="iKO-AH-J99"/>
                         <outlet property="tableView" destination="Rhx-pb-9ho" id="2Zs-1T-IJh"/>
                     </connections>
                 </viewController>
