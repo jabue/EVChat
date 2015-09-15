@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SelectMultipleViewControllerDelegate {
+protocol AddFriendsDelegate {
     func didSelectMultipleUsers(selectedUsers: [String]!)
 }
 
@@ -18,7 +18,7 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var BtnDone: UIButton!
     @IBOutlet weak var BtnCancel: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    var delegate: SelectMultipleViewControllerDelegate!
+    var delegate: AddFriendsDelegate!
     
     // test friends Array
     var friendsArray = ["Kris", "Jabue", "Tom"]
@@ -28,6 +28,7 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        // set the delegate & datasource of tableView
         tableView.delegate = self
         tableView.dataSource = self
     }

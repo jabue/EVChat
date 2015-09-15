@@ -8,11 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddFriendsDelegate {
 
-
-    @IBOutlet weak var ChatContainer: UIView!
-    @IBOutlet weak var InsideContainer: UIView!
+    @IBOutlet weak var ChatTable: UITableView!
     @IBOutlet weak var SegmentControl: UISegmentedControl!
     @IBOutlet var SwipeRight: UISwipeGestureRecognizer!
     @IBOutlet var SwipeLeft: UISwipeGestureRecognizer!
@@ -23,6 +21,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        // ChatTable setup
+        ChatTable.delegate = self
+        ChatTable.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,12 +35,12 @@ class ViewController: UIViewController {
     @IBAction func SegmentSwitch(sender: UISegmentedControl) {
         switch SegmentControl.selectedSegmentIndex
         {
-        case 0:
-            self.ChatContainer.hidden = true
-            self.InsideContainer.hidden = false
-        case 1:
-            self.ChatContainer.hidden = false
-            self.InsideContainer.hidden = true
+        case 0: break
+            // self.ChatContainer.hidden = true
+            // self.InsideContainer.hidden = false
+        case 1: break
+            // self.ChatContainer.hidden = false
+            // self.InsideContainer.hidden = true
         default:
             break; 
         }
@@ -47,19 +48,20 @@ class ViewController: UIViewController {
     
     // Mark: Swipe gesture
     @IBAction func swipeRight(sender: AnyObject) {
-        self.ChatContainer.hidden = true
-        self.InsideContainer.hidden = false
+        // self.ChatContainer.hidden = true
+        // self.InsideContainer.hidden = false
         SegmentControl.selectedSegmentIndex = 0
     }
     
     @IBAction func swipeLeft(sender: AnyObject) {
-        self.ChatContainer.hidden = false
-        self.InsideContainer.hidden = true
+        // self.ChatContainer.hidden = false
+        // self.InsideContainer.hidden = true
         SegmentControl.selectedSegmentIndex = 1
     }
     
     // Mark: add button action
     @IBAction func addButtonAction(sender: AnyObject) {
+        // go to different views depends on the segmented choice
         if SegmentControl.selectedSegmentIndex == 0
         {
             self.performSegueWithIdentifier("SelectFriends", sender: self)
@@ -68,6 +70,50 @@ class ViewController: UIViewController {
         {
             self.performSegueWithIdentifier("PushInsides", sender: self)
         }
+    }
+    
+    //MARK: - Tableview Delegate & Datasource
+    func tableView(tableView:UITableView, numberOfRowsInSection section:Int) -> Int
+    {
+        // return friendsArray.count
+        return 1
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        
+        // let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "FriendCell")
+        let cell = tableView.dequeueReusableCellWithIdentifier("ChatCell", forIndexPath: indexPath) as! UITableViewCell
+        // cell.textLabel?.text = friendsArray[indexPath.row]
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+    }
+    
+    // MARK: - SelectMultipleDelegate
+    func didSelectMultipleUsers(selectedUsers: [String]!) {
+        self.performSegueWithIdentifier("OpenChat", sender: selectedUsers)
+        print(selectedUsers)
+    }
+    
+    // MARK: - Prepare for segue to chatVC
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SelectFriends" {
+            let addFriends = segue.destinationViewController as! AddFriends
+            addFriends.delegate =  self
+        }
+        else if segue.identifier == "OpenChat" {
+            // do some setuo for the Chat view
+        }
+        
     }
 
 }
