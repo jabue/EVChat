@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import JSQMessagesViewController
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddFriendsDelegate {
 
+    @IBOutlet weak var BtnEdit: UIButton!
     @IBOutlet weak var ChatTable: UITableView!
     @IBOutlet weak var SegmentControl: UISegmentedControl!
     @IBOutlet var SwipeRight: UISwipeGestureRecognizer!
@@ -100,7 +102,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - SelectMultipleDelegate
     func didSelectMultipleUsers(selectedUsers: [String]!) {
-        self.performSegueWithIdentifier("OpenChat", sender: selectedUsers)
+        self.performSegueWithIdentifier("OpenChat", sender: "haha")
+        // self.performSegueWithIdentifier("OpenChat", sender: <#T##AnyObject?#>)
         print(selectedUsers)
     }
     
@@ -108,13 +111,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SelectFriends" {
             let addFriends = segue.destinationViewController as! AddFriends
+            // set up the delegate
             addFriends.delegate =  self
         }
         else if segue.identifier == "OpenChat" {
             // do some setuo for the Chat view
+            let nav = segue.destinationViewController as! UINavigationController
+            let ChatView = nav.topViewController as! MessageViewController
+            // let ChatView = segue.destinationViewController as! MessageViewController
+//            let groupId = sender as! String
+//            ChatView.groupId = groupId
         }
         
     }
 
+    @IBAction func btnEditPressed(sender: AnyObject) {
+        
+    }
 }
 
