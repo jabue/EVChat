@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MessageView: UIViewController, UITableViewDelegate, UITableViewDataSource
+class MessageView: UIViewController, UITableViewDelegate, UITableViewDataSource, JSQMessagesViewController
 {
     
     @IBOutlet weak var BtnReturn: UIButton!
