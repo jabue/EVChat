@@ -11,10 +11,13 @@ import JSQMessagesViewController
 
 class MessageViewController: JSQMessagesViewController {
     
+    @IBOutlet weak var NavigationBar: UINavigationItem!
+    @IBOutlet weak var BtnReturn: UIBarButtonItem!
     // var groupId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NavigationBar.title = "Here to Chat"
         // Do any additional setup after loading the view, typically from a nib.
         // ChatTable setup
     }
@@ -40,4 +43,7 @@ class MessageViewController: JSQMessagesViewController {
         
     }
     
+    @IBAction func btnReturnPress(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }

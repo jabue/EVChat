@@ -117,20 +117,21 @@
         <scene sceneID="3bR-zE-G1b">
             <objects>
                 <viewController storyboardIdentifier="OpenChat" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UJU-9V-gyD" customClass="MessageViewController" customModule="EVChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Pjb-4S-tni"/>
-                        <viewControllerLayoutGuide type="bottom" id="3O1-Zg-iYp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xXF-RZ-yus">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="YlE-QU-RYg"/>
+                    <navigationItem key="navigationItem" id="YlE-QU-RYg">
+                        <barButtonItem key="leftBarButtonItem" title="Return" id="9aj-ca-OA9">
+                            <connections>
+                                <action selector="btnReturnPress:" destination="UJU-9V-gyD" id="RSl-Qs-Ffb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="BtnReturn" destination="9aj-ca-OA9" id="NtU-gZ-Q5m"/>
+                        <outlet property="NavigationBar" destination="YlE-QU-RYg" id="H6A-Iv-mLY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgA-zC-pxp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1855" y="334"/>
+            <point key="canvasLocation" x="1695" y="334"/>
         </scene>
         <!--Add Friends-->
         <scene sceneID="ZAQ-l5-otK">
@@ -261,7 +262,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRa-Fd-7zP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043" y="334"/>
+            <point key="canvasLocation" x="995" y="334"/>
         </scene>
     </scenes>
 </document>
