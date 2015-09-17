@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var BtnEdit: UIButton!
     @IBOutlet weak var ChatTable: UITableView!
+    @IBOutlet weak var InsideTable: UITableView!
     @IBOutlet weak var SegmentControl: UISegmentedControl!
     @IBOutlet var SwipeRight: UISwipeGestureRecognizer!
     @IBOutlet var SwipeLeft: UISwipeGestureRecognizer!
@@ -28,6 +29,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // ChatTable setup
         ChatTable.delegate = self
         ChatTable.dataSource = self
+        // set up table display
+        ChatTable.hidden = false
+        InsideTable.hidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,12 +43,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func SegmentSwitch(sender: UISegmentedControl) {
         switch SegmentControl.selectedSegmentIndex
         {
-        case 0: break
+        case 0:
             // self.ChatContainer.hidden = true
             // self.InsideContainer.hidden = false
-        case 1: break
+            self.ChatTable.hidden = false
+            self.InsideTable.hidden = true
+        case 1:
             // self.ChatContainer.hidden = false
             // self.InsideContainer.hidden = true
+            self.ChatTable.hidden = true
+            self.InsideTable.hidden = false
         default:
             break; 
         }
@@ -54,10 +62,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func swipeRight(sender: AnyObject) {
         // self.ChatContainer.hidden = true
         // self.InsideContainer.hidden = false
+        self.ChatTable.hidden = false
+        self.InsideTable.hidden = true
         SegmentControl.selectedSegmentIndex = 0
     }
     
     @IBAction func swipeLeft(sender: AnyObject) {
+        self.ChatTable.hidden = true
+        self.InsideTable.hidden = false
         // self.ChatContainer.hidden = false
         // self.InsideContainer.hidden = true
         SegmentControl.selectedSegmentIndex = 1
