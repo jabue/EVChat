@@ -17,6 +17,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet var SwipeRight: UISwipeGestureRecognizer!
     @IBOutlet var SwipeLeft: UISwipeGestureRecognizer!
     @IBOutlet weak var AddButton: UIButton!
+    // chat queue
+    var ChatArray = ["Jabue"]
     
     
     
@@ -78,32 +80,42 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView:UITableView, numberOfRowsInSection section:Int) -> Int
     {
         // return friendsArray.count
-        return 1
+        print("Chat Array Length:" +  "\(self.ChatArray.count)")
+        return self.ChatArray.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
+        // make sections of the table
         return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         
-        // let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "FriendCell")
         let cell = tableView.dequeueReusableCellWithIdentifier("ChatCell", forIndexPath: indexPath) as! UITableViewCell
-        // cell.textLabel?.text = friendsArray[indexPath.row]
+        print("cell text:" + "\(ChatArray[indexPath.row])")
+        cell.textLabel?.text = ChatArray[indexPath.row]
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        // open chat selected
+        let chatuser = self.ChatArray[indexPath.row]
+        self.performSegueWithIdentifier("OpenChat", sender: chatuser)
     }
     
     // MARK: - SelectMultipleDelegate
+    // select friends gonna chat with
     func didSelectMultipleUsers(selectedUsers: [String]!) {
-        self.performSegueWithIdentifier("OpenChat", sender: "haha")
-        // self.performSegueWithIdentifier("OpenChat", sender: <#T##AnyObject?#>)
+        var chatUser:String = ""
+        for temp in selectedUsers {
+            chatUser = temp + "&"
+        }
+        ChatArray.append(chatUser)
+        self.performSegueWithIdentifier("OpenChat", sender: chatUser)
         print(selectedUsers)
     }
     
