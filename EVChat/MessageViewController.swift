@@ -13,11 +13,12 @@ class MessageViewController: JSQMessagesViewController {
     
     @IBOutlet weak var NavigationBar: UINavigationItem!
     @IBOutlet weak var BtnReturn: UIBarButtonItem!
-    // var groupId: String = ""
+    var groupId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NavigationBar.title = "Here to Chat"
+        print(groupId)
         // Do any additional setup after loading the view, typically from a nib.
         // ChatTable setup
     }
