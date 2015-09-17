@@ -118,9 +118,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             // do some setuo for the Chat view
             let nav = segue.destinationViewController as! UINavigationController
             let ChatView = nav.topViewController as! MessageViewController
-            // let ChatView = segue.destinationViewController as! MessageViewController
-//            let groupId = sender as! String
-//            ChatView.groupId = groupId
+
+            let groupId = sender as! String
+            ChatView.groupId = groupId
         }
         
     }
