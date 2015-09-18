@@ -15,8 +15,8 @@
 		2F13C8971BA23D3200A0713D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F13C8951BA23D3200A0713D /* LaunchScreen.storyboard */; };
 		2F13C8A21BA23D3200A0713D /* EVChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8A11BA23D3200A0713D /* EVChatTests.swift */; };
 		2F13C8AD1BA23D3200A0713D /* EVChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8AC1BA23D3200A0713D /* EVChatUITests.swift */; };
-		2F5EE4081BAB396C00733927 /* profile_blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F5EE4071BAB396C00733927 /* profile_blank@2x.png */; };
 		2F6F52C11BA895FC0091E3AF /* PushInside.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F52C01BA895FC0091E3AF /* PushInside.swift */; };
+		2F75EF431BAC89EA005C167E /* profile_blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F75EF421BAC89EA005C167E /* profile_blank@2x.png */; };
 		2F9B28AF1BAA192200801EF9 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9B28AE1BAA192200801EF9 /* MessageViewController.swift */; };
 		2FF3767C1BA79E850012AB0E /* AddFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3767B1BA79E850012AB0E /* AddFriends.swift */; };
 /* End PBXBuildFile section */
@@ -53,8 +53,8 @@
 		2F13C8A81BA23D3200A0713D /* EVChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EVChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F13C8AC1BA23D3200A0713D /* EVChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVChatUITests.swift; sourceTree = "<group>"; };
 		2F13C8AE1BA23D3200A0713D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2F5EE4071BAB396C00733927 /* profile_blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_blank@2x.png"; sourceTree = "<group>"; };
 		2F6F52C01BA895FC0091E3AF /* PushInside.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushInside.swift; sourceTree = "<group>"; };
+		2F75EF421BAC89EA005C167E /* profile_blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile_blank@2x.png"; path = "Resources/profile_blank@2x.png"; sourceTree = "<group>"; };
 		2F9B28AE1BAA192200801EF9 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		2FF3767B1BA79E850012AB0E /* AddFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriends.swift; sourceTree = "<group>"; };
 		95801E651BC18AC46751905D /* Pods-EVChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-EVChat/Pods-EVChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		2F13C8801BA23D3200A0713D = {
 			isa = PBXGroup;
 			children = (
-				2F5EE4061BAB390900733927 /* Resources */,
+				2F75EF441BAC89F8005C167E /* Resources */,
 				2F13C88B1BA23D3200A0713D /* EVChat */,
 				2F13C8A01BA23D3200A0713D /* EVChatTests */,
 				2F13C8AB1BA23D3200A0713D /* EVChatUITests */,
@@ -146,10 +146,10 @@
 			path = EVChatUITests;
 			sourceTree = "<group>";
 		};
-		2F5EE4061BAB390900733927 /* Resources */ = {
+		2F75EF441BAC89F8005C167E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2F5EE4071BAB396C00733927 /* profile_blank@2x.png */,
+				2F75EF421BAC89EA005C167E /* profile_blank@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -282,7 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F13C8971BA23D3200A0713D /* LaunchScreen.storyboard in Resources */,
-				2F5EE4081BAB396C00733927 /* profile_blank@2x.png in Resources */,
+				2F75EF431BAC89EA005C167E /* profile_blank@2x.png in Resources */,
 				2F13C8941BA23D3200A0713D /* Assets.xcassets in Resources */,
 				2F13C8921BA23D3200A0713D /* Main.storyboard in Resources */,
 			);
