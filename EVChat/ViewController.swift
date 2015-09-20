@@ -8,6 +8,7 @@
 
 import UIKit
 import JSQMessagesViewController
+import Parse
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddFriendsDelegate {
 
@@ -34,8 +35,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         ChatTable.hidden = false
         InsideTable.hidden = true
         
-        //here to login or sign up user for chat test
-        UserAction.userLogin("jabue", password: "jabue")
+        // here to login or sign up user for chat test
+        // UserAction.userSignup("kris", password: "kris", email: "test@gmail.com")
+        UserAction.userLogin("kris", password: "kris")
     }
 
     override func didReceiveMemoryWarning() {
@@ -125,14 +127,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - SelectMultipleDelegate
     // select friends gonna chat with
-    func didSelectMultipleUsers(selectedUsers: [String]!) {
-        var chatUser:String = ""
-        for temp in selectedUsers {
-            chatUser = temp + "&"
-        }
-        ChatArray.append(chatUser)
-        self.performSegueWithIdentifier("OpenChat", sender: chatUser)
-        print(selectedUsers)
+    func didSelectMultipleUsers(selectedUsers: [PFUser]!) {
+        let groupId = MessageAction.startMultipleChat(selectedUsers)
+        self.performSegueWithIdentifier("OpenChat", sender: groupId)
     }
     
     // MARK: - Prepare for segue to chatVC

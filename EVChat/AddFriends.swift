@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Parse
 
 protocol AddFriendsDelegate {
-    func didSelectMultipleUsers(selectedUsers: [String]!)
+    func didSelectMultipleUsers(selectedUsers: [PFUser]!)
 }
 
 class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
@@ -21,9 +22,11 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
     var delegate: AddFriendsDelegate!
     
     // test friends Array
-    var friendsArray = ["Kris", "Jabue", "Tom"]
+    // var friendsArray = ["Kris", "Jabue", "Tom"]
+    // PFUsers Array
+    var users = [PFUser]()
     // used to put selected item
-    var selectedFriends = [String]()
+    var selectedFriends = [PFUser]()
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -31,16 +34,37 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
         // set the delegate & datasource of tableView
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // load chat user friends
+        self.loadUsers()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    // MARK: - Backend methods
+    func loadUsers() {
+        let user = PFUser.currentUser()
+        let query = PFUser.query()
+        query!.whereKey("objectId", notEqualTo: user!.objectId!)
+        query!.orderByAscending("username")
+        query!.limit = 1000
+        query!.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if error == nil {
+                self.users.removeAll(keepCapacity: false)
+                self.users += objects as! [PFUser]!
+                self.tableView.reloadData()
+            } else {
+                
+            }
+        }
+    }
+    
     //MARK: - Tableview Delegate & Datasource
     func tableView(tableView:UITableView, numberOfRowsInSection section:Int) -> Int
     {
-        return friendsArray.count
+        return users.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
@@ -53,7 +77,9 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         // let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "FriendCell")
         let cell = tableView.dequeueReusableCellWithIdentifier("FriendCell", forIndexPath: indexPath) as! UITableViewCell
-        cell.textLabel?.text = friendsArray[indexPath.row]
+        let user = self.users[indexPath.row]
+        cell.textLabel?.text = user["username"] as? String
+        // cell.textLabel?.text = friendsArray[indexPath.row]
         return cell
     }
     
@@ -65,12 +91,15 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
         {
             if cell!.accessoryType == UITableViewCellAccessoryType.Checkmark
             {
-                selectedFriends.removeAtIndex(selectedFriends.indexOf((cell?.textLabel?.text)!)!)
+                // selectedFriends.removeAtIndex(selectedFriends.indexOf((cell?.textLabel?.text)!)!)
+                selectedFriends.removeAtIndex(selectedFriends.indexOf(users[indexPath.row])!)
                 cell!.accessoryType = UITableViewCellAccessoryType.None
             }
             else
             {
-                selectedFriends.append(friendsArray[indexPath.row])
+                // let selectedUser = self.users[indexPath.row]
+                // selectedFriends.append((selectedUser["username"] as? String)!)
+                selectedFriends.append(self.users[indexPath.row])
                 cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
             }
             
