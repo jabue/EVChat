@@ -26,6 +26,7 @@
 		011026E01BAE65DB00393688 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 011026DF1BAE65DB00393688 /* SystemConfiguration.framework */; };
 		011026E21BAE65E900393688 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 011026E11BAE65E900393688 /* libz.tbd */; };
 		011026E41BAE65F200393688 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 011026E31BAE65F200393688 /* libsqlite3.tbd */; };
+		013E6AD01BAF3B8700F7B675 /* UserAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013E6ACF1BAF3B8700F7B675 /* UserAction.swift */; settings = {ASSET_TAGS = (); }; };
 		0EA8E72C311853ED1C510E1B /* Pods_EVChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB039FAB34A96EF36BE1C152 /* Pods_EVChat.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2F13C88D1BA23D3200A0713D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C88C1BA23D3200A0713D /* AppDelegate.swift */; };
 		2F13C88F1BA23D3200A0713D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C88E1BA23D3200A0713D /* ViewController.swift */; };
@@ -77,6 +78,7 @@
 		011026DF1BAE65DB00393688 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		011026E11BAE65E900393688 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		011026E31BAE65F200393688 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		013E6ACF1BAF3B8700F7B675 /* UserAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAction.swift; sourceTree = "<group>"; };
 		01CB5F8E1BA9380C00059F98 /* EVChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EVChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		2F13C8891BA23D3200A0713D /* EVChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EVChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F13C88C1BA23D3200A0713D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		013E6ACC1BAF3B3B00F7B675 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				013E6ACF1BAF3B8700F7B675 /* UserAction.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		2F13C8801BA23D3200A0713D = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +181,7 @@
 		2F13C88B1BA23D3200A0713D /* EVChat */ = {
 			isa = PBXGroup;
 			children = (
+				013E6ACC1BAF3B3B00F7B675 /* Utilities */,
 				2F13C88C1BA23D3200A0713D /* AppDelegate.swift */,
 				2F13C88E1BA23D3200A0713D /* ViewController.swift */,
 				2F13C8901BA23D3200A0713D /* Main.storyboard */,
@@ -437,6 +448,7 @@
 				2F13C88F1BA23D3200A0713D /* ViewController.swift in Sources */,
 				2F13C88D1BA23D3200A0713D /* AppDelegate.swift in Sources */,
 				2FF3767C1BA79E850012AB0E /* AddFriends.swift in Sources */,
+				013E6AD01BAF3B8700F7B675 /* UserAction.swift in Sources */,
 				2F9B28AF1BAA192200801EF9 /* MessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,12 +26,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         // ChatTable setup
         ChatTable.delegate = self
         ChatTable.dataSource = self
         // set up table display
         ChatTable.hidden = false
         InsideTable.hidden = true
+        
+        //here to login or sign up user for chat test
+        UserAction.userLogin("jabue", password: "jabue")
     }
 
     override func didReceiveMemoryWarning() {
