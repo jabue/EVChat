@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        // Parse Chat settings
+        Parse.setApplicationId("PvsktIlVMIcanN4rU9KnidYN18weR2VkYx13pjDl", clientKey: "UwxtJNj2J6r0lJ5NSFY2NsRHQk1qv0EhuJW1NeHB")
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         return true
     }
 
