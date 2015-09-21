@@ -140,6 +140,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // print("cell text:" + "\(ChatArray[indexPath.row])")
         // cell.textLabel?.text = ChatArray[indexPath.row]
         let message = messages[indexPath.row]
+        // let user = message["user"] as! PFUser
+        // print(user)
         cell.textLabel?.text = message["description"] as! String
         return cell
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 import JSQMessagesViewController
 
 class MessageViewController: JSQMessagesViewController {
@@ -15,6 +16,8 @@ class MessageViewController: JSQMessagesViewController {
     @IBOutlet weak var BtnReturn: UIBarButtonItem!
     
     var groupId: String = ""
+    // User Array
+    var users = [PFUser]()
     // Message Array
     var messages = [JSQMessage]()
     // chat bubble
@@ -23,14 +26,17 @@ class MessageViewController: JSQMessagesViewController {
     var incomingBubbleImage: JSQMessagesBubbleImage!
     // user Image
     var blankAvatarImage: JSQMessagesAvatarImage!
+    // token to load messages
+    var isLoading: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.senderId = "Jabue"
-        self.senderDisplayName = "Jabue Chat"
+        var user = PFUser.currentUser()
+        self.senderId = user?.objectId
+        self.senderDisplayName = user?.username
         
-        NavigationBar.title = "Here to Chat"
+        NavigationBar.title = "chat view"
         print(groupId)
         
         // chat and user image used in this view
@@ -38,6 +44,10 @@ class MessageViewController: JSQMessagesViewController {
         incomingBubbleImage = bubbleFactory.incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
         
         blankAvatarImage = JSQMessagesAvatarImageFactory.avatarImageWithImage(UIImage(named: "profile_blank"), diameter: 30)
+        
+        // load chat messages
+        isLoading = false
+        self.loadMessages()
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,15 +73,73 @@ class MessageViewController: JSQMessagesViewController {
     }
     
     //MARK: Background Functions
-    func sendMessage(var text: String, video: NSURL?, picture: UIImage?) {
-        var newMessage = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text);
-        messages += [newMessage]
+    func loadMessages() {
+        if self.isLoading == false {
+            self.isLoading = true
+            var lastMessage = messages.last
+            
+            var query = PFQuery(className: "Chat")
+            query.whereKey("groupId", equalTo: groupId)
+            if lastMessage != nil {
+                query.whereKey("createdAt", greaterThan: (lastMessage?.date)!)
+            }
+            query.includeKey("user")
+            query.orderByDescending("createdAt")
+            query.limit = 50
+            query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+                if error == nil {
+                    self.automaticallyScrollsToMostRecentMessage = false
+                    for object in (objects as! [PFObject]!).reverse() {
+                        self.addMessage(object)
+                    }
+                    if objects!.count > 0 {
+                        self.finishReceivingMessage()
+                        self.scrollToBottomAnimated(false)
+                    }
+                    self.automaticallyScrollsToMostRecentMessage = true
+                } else {
+                    print("Load Message Wrong !")
+                }
+                self.isLoading = false;
+            })
+        }
+    }
+    
+    // add message to table data source
+    func addMessage(object: PFObject) {
+        var message: JSQMessage!
+        
+        var user = object["user"] as! PFUser
+        var name = user["username"] as! String
+        
+        message = JSQMessage(senderId: user.objectId, senderDisplayName: name, date: object.createdAt, text: (object["text"] as? String))
+        
+        users.append(user)
+        messages.append(message)
+    }
+    
+    // send message func
+    func sendMessage(var text: String) {
+        
+        var object = PFObject(className: "Chat")
+        object["user"] = PFUser.currentUser()
+        object["groupId"] = self.groupId
+        object["text"] = text
+        object.saveInBackgroundWithBlock { (returnedResult, returnedError) -> Void in
+            if returnedError == nil {
+                JSQSystemSoundPlayer.jsq_playMessageSentSound()
+                self.loadMessages()
+            } else {
+                print("Failed to send message !")
+            }
+        }
+        
         self.finishSendingMessage()
     }
     
     // MARK: - JSQMessagesViewController method overrides
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
-        self.sendMessage(text, video: nil, picture: nil)
+        self.sendMessage(text)
     }
     
     override func didPressAccessoryButton(sender: UIButton!) {

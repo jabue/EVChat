@@ -35,6 +35,8 @@ class MessageAction {
             description = description + (user["username"] as! String)
         }
         
+        description = description + "&" + (PFUser.currentUser()?.username)!
+        
         for user in users {
             MessageAction.createMessageItem(user, groupId: groupId, description: description)
         }
@@ -60,8 +62,8 @@ class MessageAction {
                     message["lastMessage"] = "";
                     message["counter"] = 0
                     message["updatedAction"] = NSDate()
-                    message.saveInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
-                        if (error != nil) {
+                    message.saveInBackgroundWithBlock({ (returnedResult, returnedError) -> Void in
+                        if (returnedError != nil) {
                             print("Messages.createMessageItem save error.")
                             print(error)
                         }
