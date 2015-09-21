@@ -39,6 +39,8 @@ class MessageAction {
             MessageAction.createMessageItem(user, groupId: groupId, description: description)
         }
         
+        MessageAction.createMessageItem(PFUser.currentUser()!, groupId: groupId, description: description)
+        
         return groupId
     }
     

@@ -21,8 +21,6 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var tableView: UITableView!
     var delegate: AddFriendsDelegate!
     
-    // test friends Array
-    // var friendsArray = ["Kris", "Jabue", "Tom"]
     // PFUsers Array
     var users = [PFUser]()
     // used to put selected item

@@ -20,10 +20,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet var SwipeLeft: UISwipeGestureRecognizer!
     @IBOutlet weak var AddButton: UIButton!
     // chat queue
-    var ChatArray = ["Jabue"]
-    
-    
-    
+    // var ChatArray = ["Jabue"]
+    var messages = [PFObject]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -37,7 +36,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // here to login or sign up user for chat test
         // UserAction.userSignup("kris", password: "kris", email: "test@gmail.com")
-        UserAction.userLogin("kris", password: "kris")
+        // UserAction.userLogin("kris", password: "kris")
+        
+        // loadMessages from server
+        if PFUser.currentUser() != nil {
+            self.loadMessages()
+        } else {
+            print("User is logout, please login !")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,6 +67,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.InsideTable.hidden = false
         default:
             break; 
+        }
+    }
+    
+    // MARK: - Backend methods
+    func loadMessages() {
+        let query = PFQuery(className: "Messages")
+        query.whereKey("user", equalTo: PFUser.currentUser()!)
+        print(PFUser.currentUser())
+        query.includeKey("lastUser")
+        query.orderByDescending("updatedAction")
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if error == nil {
+                self.messages.removeAll(keepCapacity: false)
+                self.messages += objects as! [PFObject]!
+                self.ChatTable.reloadData()
+            } else {
+                print("fail to load all the messages !")
+            }
         }
     }
     
@@ -98,8 +122,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView:UITableView, numberOfRowsInSection section:Int) -> Int
     {
         // return friendsArray.count
-        print("Chat Array Length:" +  "\(self.ChatArray.count)")
-        return self.ChatArray.count
+        // print("Chat Array Length:" +  "\(self.ChatArray.count)")
+        // return self.ChatArray.count
+        return self.messages.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
@@ -112,8 +137,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ChatCell", forIndexPath: indexPath) as! UITableViewCell
-        print("cell text:" + "\(ChatArray[indexPath.row])")
-        cell.textLabel?.text = ChatArray[indexPath.row]
+        // print("cell text:" + "\(ChatArray[indexPath.row])")
+        // cell.textLabel?.text = ChatArray[indexPath.row]
+        let message = messages[indexPath.row]
+        cell.textLabel?.text = message["description"] as! String
         return cell
     }
     
@@ -121,14 +148,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         // open chat selected
-        let chatuser = self.ChatArray[indexPath.row]
-        self.performSegueWithIdentifier("OpenChat", sender: chatuser)
+        // let chatuser = self.ChatArray[indexPath.row]
+        let message = self.messages[indexPath.row] as PFObject
+        let groupId = message["groupId"] as! String
+        self.performSegueWithIdentifier("OpenChat", sender: groupId)
     }
     
     // MARK: - SelectMultipleDelegate
     // select friends gonna chat with
     func didSelectMultipleUsers(selectedUsers: [PFUser]!) {
         let groupId = MessageAction.startMultipleChat(selectedUsers)
+        self.ChatTable.reloadData()
         self.performSegueWithIdentifier("OpenChat", sender: groupId)
     }
     
