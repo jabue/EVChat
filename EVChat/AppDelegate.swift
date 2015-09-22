@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("PvsktIlVMIcanN4rU9KnidYN18weR2VkYx13pjDl", clientKey: "UwxtJNj2J6r0lJ5NSFY2NsRHQk1qv0EhuJW1NeHB")
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
-        // UserAction.userLogin("jabue", password: "jabue")
+        // UserAction.userLogin("kris", password: "kris")
         return true
     }
 

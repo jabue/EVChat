@@ -85,7 +85,7 @@ class MessageViewController: JSQMessagesViewController {
             }
             query.includeKey("user")
             query.orderByDescending("createdAt")
-            query.limit = 50
+            query.limit = 5
             query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
                     self.automaticallyScrollsToMostRecentMessage = false

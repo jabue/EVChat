@@ -137,11 +137,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ChatCell", forIndexPath: indexPath) as! UITableViewCell
-        // print("cell text:" + "\(ChatArray[indexPath.row])")
-        // cell.textLabel?.text = ChatArray[indexPath.row]
         let message = messages[indexPath.row]
-        // let user = message["user"] as! PFUser
-        // print(user)
+        // deal with the description String
+        // var description = message["description"] as! String
+        // let userName = PFUser.currentUser()?.username
+        // description.rangeOfString(username)
         cell.textLabel?.text = message["description"] as! String
         return cell
     }
@@ -160,6 +160,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // select friends gonna chat with
     func didSelectMultipleUsers(selectedUsers: [PFUser]!) {
         let groupId = MessageAction.startMultipleChat(selectedUsers)
+        self.loadMessages()
         self.ChatTable.reloadData()
         self.performSegueWithIdentifier("OpenChat", sender: groupId)
     }

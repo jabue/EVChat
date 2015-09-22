@@ -35,13 +35,18 @@ class MessageAction {
             description = description + (user["username"] as! String)
         }
         
-        description = description + "&" + (PFUser.currentUser()?.username)!
-        
-        for user in users {
-            MessageAction.createMessageItem(user, groupId: groupId, description: description)
+        // description = description + "&" + (PFUser.currentUser()?.username)!
+        if users.count == 2 {
+            let user1 = users[0]
+            let user2 = users[1]
+            MessageAction.createMessageItem(user1, groupId: groupId, description: user2.username!)
+            MessageAction.createMessageItem(user2, groupId: groupId, description: user1.username!)
+        } else {
+            for user in users {
+                MessageAction.createMessageItem(user, groupId: groupId, description: description)
+            }
         }
-        
-        MessageAction.createMessageItem(PFUser.currentUser()!, groupId: groupId, description: description)
+        // MessageAction.createMessageItem(PFUser.currentUser()!, groupId: groupId, description: description)
         
         return groupId
     }
