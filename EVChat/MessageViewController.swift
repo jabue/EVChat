@@ -47,7 +47,10 @@ class MessageViewController: JSQMessagesViewController {
         
         // load chat messages
         isLoading = false
-        self.loadMessages()
+        // self.loadMessages()
+        if PFUser.currentUser() != nil {
+            self.loadMessages()
+        }
     }
     
     override func didReceiveMemoryWarning() {

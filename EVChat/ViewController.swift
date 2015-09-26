@@ -39,11 +39,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // UserAction.userLogin("kris", password: "kris")
         
         // loadMessages from server
+        
         if PFUser.currentUser() != nil {
             self.loadMessages()
         } else {
-            print("User is logout, please login !")
+            print("user is not login !")
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -156,12 +158,40 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.performSegueWithIdentifier("OpenChat", sender: groupId)
     }
     
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let more = UITableViewRowAction(style: .Normal, title: "More") { action, index in
+            print("more button tapped")
+        }
+        more.backgroundColor = UIColor.lightGrayColor()
+        
+        let favorite = UITableViewRowAction(style: .Normal, title: "Favorite") { action, index in
+            print("favorite button tapped")
+        }
+        favorite.backgroundColor = UIColor.orangeColor()
+        
+        let share = UITableViewRowAction(style: .Normal, title: "Share") { action, index in
+            print("share button tapped")
+        }
+        share.backgroundColor = UIColor.blueColor()
+        
+        return [share, favorite, more]
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // the cells you would like the actions to appear needs to be editable
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // you need to implement this method too or you can't swipe to display the actions
+    }
+    
     // MARK: - SelectMultipleDelegate
     // select friends gonna chat with
     func didSelectMultipleUsers(selectedUsers: [PFUser]!) {
         let groupId = MessageAction.startMultipleChat(selectedUsers)
         self.loadMessages()
-        self.ChatTable.reloadData()
+        // self.ChatTable.reloadData()
         self.performSegueWithIdentifier("OpenChat", sender: groupId)
     }
     

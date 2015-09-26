@@ -34,7 +34,12 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
         tableView.dataSource = self
         
         // load chat user friends
-        self.loadUsers()
+        if PFUser.currentUser() != nil {
+            self.loadUsers()
+        } else {
+            print("user is not login !")
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
