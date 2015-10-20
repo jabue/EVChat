@@ -10,7 +10,7 @@ import UIKit
 import JSQMessagesViewController
 import Parse
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddFriendsDelegate {
+class ChatMainView: UIViewController, UITableViewDataSource, UITableViewDelegate, AddFriendsDelegate {
 
     @IBOutlet weak var BtnEdit: UIButton!
     @IBOutlet weak var ChatTable: UITableView!

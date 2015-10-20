@@ -30,12 +30,17 @@
 		013E6AD21BAF741500F7B675 /* MessageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013E6AD11BAF741500F7B675 /* MessageAction.swift */; settings = {ASSET_TAGS = (); }; };
 		0EA8E72C311853ED1C510E1B /* Pods_EVChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB039FAB34A96EF36BE1C152 /* Pods_EVChat.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2F13C88D1BA23D3200A0713D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C88C1BA23D3200A0713D /* AppDelegate.swift */; };
-		2F13C88F1BA23D3200A0713D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C88E1BA23D3200A0713D /* ViewController.swift */; };
+		2F13C88F1BA23D3200A0713D /* ChatMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C88E1BA23D3200A0713D /* ChatMainView.swift */; };
 		2F13C8921BA23D3200A0713D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F13C8901BA23D3200A0713D /* Main.storyboard */; };
 		2F13C8941BA23D3200A0713D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F13C8931BA23D3200A0713D /* Assets.xcassets */; };
 		2F13C8971BA23D3200A0713D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F13C8951BA23D3200A0713D /* LaunchScreen.storyboard */; };
 		2F13C8A21BA23D3200A0713D /* EVChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8A11BA23D3200A0713D /* EVChatTests.swift */; };
 		2F13C8AD1BA23D3200A0713D /* EVChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8AC1BA23D3200A0713D /* EVChatUITests.swift */; };
+		2F4AE17D1BD59AB20076EFC7 /* JBChatMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4AE17C1BD59AB20076EFC7 /* JBChatMainView.swift */; };
+		2F4AE1821BD5A28A0076EFC7 /* tab_group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4AE17E1BD5A28A0076EFC7 /* tab_group@2x.png */; };
+		2F4AE1831BD5A28A0076EFC7 /* tab_messages@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4AE17F1BD5A28A0076EFC7 /* tab_messages@2x.png */; };
+		2F4AE1841BD5A28A0076EFC7 /* tab_private@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4AE1801BD5A28A0076EFC7 /* tab_private@2x.png */; };
+		2F4AE1851BD5A28A0076EFC7 /* tab_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4AE1811BD5A28A0076EFC7 /* tab_profile@2x.png */; };
 		2F6F52C11BA895FC0091E3AF /* PushInside.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F52C01BA895FC0091E3AF /* PushInside.swift */; };
 		2F75EF431BAC89EA005C167E /* profile_blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F75EF421BAC89EA005C167E /* profile_blank@2x.png */; };
 		2F9B28AF1BAA192200801EF9 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9B28AE1BAA192200801EF9 /* MessageViewController.swift */; };
@@ -84,7 +89,7 @@
 		01CB5F8E1BA9380C00059F98 /* EVChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EVChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		2F13C8891BA23D3200A0713D /* EVChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EVChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F13C88C1BA23D3200A0713D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2F13C88E1BA23D3200A0713D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2F13C88E1BA23D3200A0713D /* ChatMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMainView.swift; sourceTree = "<group>"; };
 		2F13C8911BA23D3200A0713D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F13C8931BA23D3200A0713D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F13C8961BA23D3200A0713D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -95,6 +100,11 @@
 		2F13C8A81BA23D3200A0713D /* EVChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EVChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F13C8AC1BA23D3200A0713D /* EVChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVChatUITests.swift; sourceTree = "<group>"; };
 		2F13C8AE1BA23D3200A0713D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F4AE17C1BD59AB20076EFC7 /* JBChatMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JBChatMainView.swift; sourceTree = "<group>"; };
+		2F4AE17E1BD5A28A0076EFC7 /* tab_group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_group@2x.png"; path = "images/tab_group@2x.png"; sourceTree = "<group>"; };
+		2F4AE17F1BD5A28A0076EFC7 /* tab_messages@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_messages@2x.png"; path = "images/tab_messages@2x.png"; sourceTree = "<group>"; };
+		2F4AE1801BD5A28A0076EFC7 /* tab_private@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_private@2x.png"; path = "images/tab_private@2x.png"; sourceTree = "<group>"; };
+		2F4AE1811BD5A28A0076EFC7 /* tab_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_profile@2x.png"; path = "images/tab_profile@2x.png"; sourceTree = "<group>"; };
 		2F6F52C01BA895FC0091E3AF /* PushInside.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushInside.swift; sourceTree = "<group>"; };
 		2F75EF421BAC89EA005C167E /* profile_blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile_blank@2x.png"; path = "Resources/profile_blank@2x.png"; sourceTree = "<group>"; };
 		2F9B28AE1BAA192200801EF9 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -184,9 +194,10 @@
 		2F13C88B1BA23D3200A0713D /* EVChat */ = {
 			isa = PBXGroup;
 			children = (
+				2F4AE1871BD5A2A20076EFC7 /* images */,
 				013E6ACC1BAF3B3B00F7B675 /* Utilities */,
 				2F13C88C1BA23D3200A0713D /* AppDelegate.swift */,
-				2F13C88E1BA23D3200A0713D /* ViewController.swift */,
+				2F13C88E1BA23D3200A0713D /* ChatMainView.swift */,
 				2F13C8901BA23D3200A0713D /* Main.storyboard */,
 				2F13C8931BA23D3200A0713D /* Assets.xcassets */,
 				2F13C8951BA23D3200A0713D /* LaunchScreen.storyboard */,
@@ -195,6 +206,7 @@
 				2F6F52C01BA895FC0091E3AF /* PushInside.swift */,
 				01CB5F8E1BA9380C00059F98 /* EVChat-Bridging-Header.h */,
 				2F9B28AE1BAA192200801EF9 /* MessageViewController.swift */,
+				2F4AE17C1BD59AB20076EFC7 /* JBChatMainView.swift */,
 			);
 			path = EVChat;
 			sourceTree = "<group>";
@@ -215,6 +227,17 @@
 				2F13C8AE1BA23D3200A0713D /* Info.plist */,
 			);
 			path = EVChatUITests;
+			sourceTree = "<group>";
+		};
+		2F4AE1871BD5A2A20076EFC7 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				2F4AE17E1BD5A28A0076EFC7 /* tab_group@2x.png */,
+				2F4AE17F1BD5A28A0076EFC7 /* tab_messages@2x.png */,
+				2F4AE1801BD5A28A0076EFC7 /* tab_private@2x.png */,
+				2F4AE1811BD5A28A0076EFC7 /* tab_profile@2x.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		2F75EF441BAC89F8005C167E /* Resources */ = {
@@ -371,9 +394,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F4AE1841BD5A28A0076EFC7 /* tab_private@2x.png in Resources */,
+				2F4AE1821BD5A28A0076EFC7 /* tab_group@2x.png in Resources */,
 				2F13C8971BA23D3200A0713D /* LaunchScreen.storyboard in Resources */,
+				2F4AE1831BD5A28A0076EFC7 /* tab_messages@2x.png in Resources */,
 				2F75EF431BAC89EA005C167E /* profile_blank@2x.png in Resources */,
 				2F13C8941BA23D3200A0713D /* Assets.xcassets in Resources */,
+				2F4AE1851BD5A28A0076EFC7 /* tab_profile@2x.png in Resources */,
 				2F13C8921BA23D3200A0713D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,8 +475,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F6F52C11BA895FC0091E3AF /* PushInside.swift in Sources */,
-				2F13C88F1BA23D3200A0713D /* ViewController.swift in Sources */,
+				2F13C88F1BA23D3200A0713D /* ChatMainView.swift in Sources */,
 				013E6AD21BAF741500F7B675 /* MessageAction.swift in Sources */,
+				2F4AE17D1BD59AB20076EFC7 /* JBChatMainView.swift in Sources */,
 				2F13C88D1BA23D3200A0713D /* AppDelegate.swift in Sources */,
 				2FF3767C1BA79E850012AB0E /* AddFriends.swift in Sources */,
 				013E6AD01BAF3B8700F7B675 /* UserAction.swift in Sources */,
