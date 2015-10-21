@@ -45,23 +45,28 @@
                                     <constraint firstItem="vev-ET-NeP" firstAttribute="centerX" secondItem="LXZ-p4-LOG" secondAttribute="centerX" id="u4j-EO-aPY"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UyC-VO-W1l">
-                                <rect key="frame" x="0.0" y="48" width="600" height="551"/>
+                            <searchBar contentMode="redraw" placeholder="Search Chat" translatesAutoresizingMaskIntoConstraints="NO" id="LHk-R9-KRs">
+                                <rect key="frame" x="0.0" y="48" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Tj5-oi-4x5"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="80B-yN-caJ"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UyC-VO-W1l">
+                                <rect key="frame" x="0.0" y="92" width="600" height="459"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Chat" id="LHk-R9-KRs">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <scopeButtonTitles>
-                                        <string>Title</string>
-                                    </scopeButtonTitles>
-                                    <connections>
-                                        <outlet property="delegate" destination="BYZ-38-t0r" id="80B-yN-caJ"/>
-                                    </connections>
-                                </searchBar>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="459" id="Jll-AA-jxn"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCells" textLabel="4hG-DX-Acx" style="IBUITableViewCellStyleDefault" id="cwc-Zd-iBs">
-                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="4hG-DX-Acx" style="IBUITableViewCellStyleDefault" id="cwc-Zd-iBs">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cwc-Zd-iBs" id="XXK-nQ-RRf">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -78,6 +83,11 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Jll-AA-jxn"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="UmA-fR-D5D"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="SxY-ex-dRD"/>
@@ -88,13 +98,22 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="UyC-VO-W1l" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="1f6-EC-GPO"/>
+                            <constraint firstItem="UyC-VO-W1l" firstAttribute="top" secondItem="LHk-R9-KRs" secondAttribute="bottom" id="3nj-FR-dp7"/>
+                            <constraint firstItem="UyC-VO-W1l" firstAttribute="trailing" secondItem="LHk-R9-KRs" secondAttribute="trailing" id="7Mb-og-hnI"/>
                             <constraint firstItem="LXZ-p4-LOG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="MMn-vK-fjo"/>
+                            <constraint firstItem="UyC-VO-W1l" firstAttribute="leading" secondItem="LHk-R9-KRs" secondAttribute="leading" id="fZ7-DU-60n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LXZ-p4-LOG" secondAttribute="trailing" constant="-20" id="j8u-ee-IPA"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="UyC-VO-W1l" secondAttribute="bottom" constant="1" id="kr9-to-sZr"/>
-                            <constraint firstItem="UyC-VO-W1l" firstAttribute="top" secondItem="LXZ-p4-LOG" secondAttribute="bottom" id="vDX-xa-5ZQ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="UyC-VO-W1l" secondAttribute="bottom" id="kr9-to-sZr"/>
+                            <constraint firstItem="LHk-R9-KRs" firstAttribute="top" secondItem="LXZ-p4-LOG" secondAttribute="bottom" id="lea-xI-842"/>
+                            <constraint firstItem="UyC-VO-W1l" firstAttribute="top" secondItem="LHk-R9-KRs" secondAttribute="bottom" id="vPn-54-XFT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UyC-VO-W1l" secondAttribute="trailing" constant="-20" id="xV0-pM-byG"/>
                             <constraint firstItem="LXZ-p4-LOG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="y3H-bt-a3K"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3nj-FR-dp7"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="j2M-lf-6m6" appends="YES" id="dyh-sA-rrJ"/>
                             <outletCollection property="gestureRecognizers" destination="9DM-UF-bB2" appends="YES" id="jiQ-ub-uk9"/>
@@ -104,10 +123,10 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="AddButton" destination="i4Y-Kw-aMP" id="YTO-zZ-5nA"/>
-                        <outlet property="ChatTable" destination="UyC-VO-W1l" id="Vu1-XX-DAy"/>
                         <outlet property="SwipeLeft" destination="9DM-UF-bB2" id="X9g-ni-bGK"/>
                         <outlet property="SwipeRight" destination="j2M-lf-6m6" id="t7z-YA-Txr"/>
                         <outlet property="searchDisplayController" destination="5aU-8C-14q" id="DGu-AN-20i"/>
+                        <outlet property="tableView" destination="UyC-VO-W1l" id="w1X-Vx-FtE"/>
                         <segue destination="hI5-Ps-eKo" kind="show" identifier="SelectFriends" id="1Sv-g5-kD5"/>
                         <segue destination="fS5-ss-3d5" kind="show" identifier="OpenChat" id="a6p-R2-ahy"/>
                     </connections>

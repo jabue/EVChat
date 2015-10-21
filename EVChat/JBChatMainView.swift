@@ -19,7 +19,7 @@ import Parse
 
 class JBChatMainView: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, AddFriendsDelegate {
     
-    @IBOutlet weak var ChatTable: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet var SwipeRight: UISwipeGestureRecognizer!
     @IBOutlet var SwipeLeft: UISwipeGestureRecognizer!
     @IBOutlet weak var AddButton: UIButton!
@@ -57,7 +57,7 @@ class JBChatMainView: UIViewController, UITableViewDataSource, UITableViewDelega
             if error == nil {
                 self.messages.removeAll(keepCapacity: false)
                 self.messages += objects as! [PFObject]!
-                self.ChatTable.reloadData()
+                self.tableView.reloadData()
             } else {
                 print("fail to load all the messages !")
             }
@@ -80,7 +80,7 @@ class JBChatMainView: UIViewController, UITableViewDataSource, UITableViewDelega
     //MARK: - Tableview Delegate & Datasource
     func tableView(tableView:UITableView, numberOfRowsInSection section:Int) -> Int
     {
-        if (ChatTable == self.searchDisplayController?.searchResultsTableView)
+        if (tableView == self.searchDisplayController?.searchResultsTableView)
         {
             return self.filteredMessage.count
         }
@@ -99,10 +99,11 @@ class JBChatMainView: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("ChatCells")! as UITableViewCell
+        // let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell")!
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         
         var message: PFObject
-        if (ChatTable == self.searchDisplayController?.searchResultsTableView)
+        if (tableView == self.searchDisplayController?.searchResultsTableView)
         {
             message = filteredMessage[indexPath.row]
         }
@@ -121,7 +122,7 @@ class JBChatMainView: UIViewController, UITableViewDataSource, UITableViewDelega
         // let chatuser = self.ChatArray[indexPath.row]
         // let message = self.messages[indexPath.row] as PFObject
         var message: PFObject
-        if (ChatTable == self.searchDisplayController?.searchResultsTableView)
+        if (tableView == self.searchDisplayController?.searchResultsTableView)
         {
             message = filteredMessage[indexPath.row]
         }
@@ -206,10 +207,6 @@ class JBChatMainView: UIViewController, UITableViewDataSource, UITableViewDelega
             let groupId = sender as! String
             ChatView.groupId = groupId
         }
-        
-    }
-    
-    @IBAction func btnEditPressed(sender: AnyObject) {
         
     }
 }
