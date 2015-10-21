@@ -30,7 +30,6 @@
 		013E6AD21BAF741500F7B675 /* MessageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013E6AD11BAF741500F7B675 /* MessageAction.swift */; settings = {ASSET_TAGS = (); }; };
 		0EA8E72C311853ED1C510E1B /* Pods_EVChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB039FAB34A96EF36BE1C152 /* Pods_EVChat.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2F13C88D1BA23D3200A0713D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C88C1BA23D3200A0713D /* AppDelegate.swift */; };
-		2F13C88F1BA23D3200A0713D /* ChatMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C88E1BA23D3200A0713D /* ChatMainView.swift */; };
 		2F13C8921BA23D3200A0713D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F13C8901BA23D3200A0713D /* Main.storyboard */; };
 		2F13C8941BA23D3200A0713D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F13C8931BA23D3200A0713D /* Assets.xcassets */; };
 		2F13C8971BA23D3200A0713D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F13C8951BA23D3200A0713D /* LaunchScreen.storyboard */; };
@@ -89,7 +88,6 @@
 		01CB5F8E1BA9380C00059F98 /* EVChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EVChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		2F13C8891BA23D3200A0713D /* EVChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EVChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F13C88C1BA23D3200A0713D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2F13C88E1BA23D3200A0713D /* ChatMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMainView.swift; sourceTree = "<group>"; };
 		2F13C8911BA23D3200A0713D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F13C8931BA23D3200A0713D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F13C8961BA23D3200A0713D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 				2F4AE1871BD5A2A20076EFC7 /* images */,
 				013E6ACC1BAF3B3B00F7B675 /* Utilities */,
 				2F13C88C1BA23D3200A0713D /* AppDelegate.swift */,
-				2F13C88E1BA23D3200A0713D /* ChatMainView.swift */,
 				2F13C8901BA23D3200A0713D /* Main.storyboard */,
 				2F13C8931BA23D3200A0713D /* Assets.xcassets */,
 				2F13C8951BA23D3200A0713D /* LaunchScreen.storyboard */,
@@ -475,7 +472,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F6F52C11BA895FC0091E3AF /* PushInside.swift in Sources */,
-				2F13C88F1BA23D3200A0713D /* ChatMainView.swift in Sources */,
 				013E6AD21BAF741500F7B675 /* MessageAction.swift in Sources */,
 				2F4AE17D1BD59AB20076EFC7 /* JBChatMainView.swift in Sources */,
 				2F13C88D1BA23D3200A0713D /* AppDelegate.swift in Sources */,
