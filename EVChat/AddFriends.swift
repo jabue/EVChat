@@ -13,7 +13,7 @@ protocol AddFriendsDelegate {
     func didSelectMultipleUsers(selectedUsers: [PFUser]!)
 }
 
-class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
+class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchDisplayDelegate
 {
     
     @IBOutlet weak var BtnDone: UIButton!
@@ -23,15 +23,13 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     // PFUsers Array
     var users = [PFUser]()
+    var filteredUsers = [PFUser]()
     // used to put selected item
     var selectedFriends = [PFUser]()
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // set the delegate & datasource of tableView
-        tableView.delegate = self
-        tableView.dataSource = self
         
         // load chat user friends
         if PFUser.currentUser() != nil {
@@ -67,7 +65,14 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
     //MARK: - Tableview Delegate & Datasource
     func tableView(tableView:UITableView, numberOfRowsInSection section:Int) -> Int
     {
-        return users.count
+        if(tableView == self.searchDisplayController?.searchResultsTableView)
+        {
+            return filteredUsers.count
+        }
+        else
+        {
+           return users.count
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int
@@ -79,8 +84,16 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
     {
         
         // let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "FriendCell")
-        let cell = tableView.dequeueReusableCellWithIdentifier("FriendCell", forIndexPath: indexPath) as! UITableViewCell
-        let user = self.users[indexPath.row]
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("FriendCell", forIndexPath: indexPath) as! UITableViewCell
+        var user: PFUser
+        if(tableView == self.searchDisplayController?.searchResultsTableView)
+        {
+            user = self.filteredUsers[indexPath.row]
+        }
+        else
+        {
+            user = self.users[indexPath.row]
+        }
         cell.textLabel?.text = user["username"] as? String
         // cell.textLabel?.text = friendsArray[indexPath.row]
         return cell
@@ -88,29 +101,57 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        
-        if cell!.selected
+        if(tableView == self.searchDisplayController?.searchResultsTableView)
         {
-            if cell!.accessoryType == UITableViewCellAccessoryType.Checkmark
-            {
-                // selectedFriends.removeAtIndex(selectedFriends.indexOf((cell?.textLabel?.text)!)!)
-                selectedFriends.removeAtIndex(selectedFriends.indexOf(users[indexPath.row])!)
-                cell!.accessoryType = UITableViewCellAccessoryType.None
-            }
-            else
-            {
-                // let selectedUser = self.users[indexPath.row]
-                // selectedFriends.append((selectedUser["username"] as? String)!)
-                selectedFriends.append(self.users[indexPath.row])
-                cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
-            }
             
         }
         else
         {
-            cell!.accessoryType = UITableViewCellAccessoryType.None
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            
+            if cell!.selected
+            {
+                if cell!.accessoryType == UITableViewCellAccessoryType.Checkmark
+                {
+                    // selectedFriends.removeAtIndex(selectedFriends.indexOf((cell?.textLabel?.text)!)!)
+                    selectedFriends.removeAtIndex(selectedFriends.indexOf(users[indexPath.row])!)
+                    cell!.accessoryType = UITableViewCellAccessoryType.None
+                }
+                else
+                {
+                    // let selectedUser = self.users[indexPath.row]
+                    // selectedFriends.append((selectedUser["username"] as? String)!)
+                    selectedFriends.append(self.users[indexPath.row])
+                    cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
+                }
+                
+            }
+            else
+            {
+                cell!.accessoryType = UITableViewCellAccessoryType.None
+            }
         }
+    }
+    
+    // MARK: search
+    // function used to filter search string
+    func filterContentForSearchText(searchText: String) {
+        // Filter the array using the filter method
+        self.filteredUsers = self.users.filter({( user: PFUser) -> Bool in
+            let userName = user["username"] as! String
+            let stringMatch = userName.rangeOfString(searchText)
+            return (stringMatch != nil)
+        })
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        self.filterContentForSearchText(searchString)
+        return true
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text!)
+        return true
     }
     
     //MARK: Button Action
