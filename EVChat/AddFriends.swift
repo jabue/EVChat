@@ -45,6 +45,7 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     // MARK: - Backend methods
+    // load users from parse server
     func loadUsers() {
         let user = PFUser.currentUser()
         let query = PFUser.query()
@@ -65,6 +66,7 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     //MARK: - Tableview Delegate & Datasource
     func tableView(tableView:UITableView, numberOfRowsInSection section:Int) -> Int
     {
+        // if is in the search status
         if(tableView == self.searchDisplayController?.searchResultsTableView)
         {
             return filteredUsers.count
@@ -86,6 +88,7 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         // let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "FriendCell")
         let cell = self.tableView.dequeueReusableCellWithIdentifier("FriendCell", forIndexPath: indexPath) as! UITableViewCell
         var user: PFUser
+        // if is in the search status
         if(tableView == self.searchDisplayController?.searchResultsTableView)
         {
             user = self.filteredUsers[indexPath.row]
@@ -95,15 +98,39 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             user = self.users[indexPath.row]
         }
         cell.textLabel?.text = user["username"] as? String
-        // cell.textLabel?.text = friendsArray[indexPath.row]
+        
+        // someone is already selected, add the mark
+        if(selectedFriends.contains(user)){
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        }
+        else
+        {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        }
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
+        // if is in the search status
         if(tableView == self.searchDisplayController?.searchResultsTableView)
         {
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
             
+            if cell!.selected
+            {
+                if cell!.accessoryType == UITableViewCellAccessoryType.Checkmark
+                {
+                    selectedFriends.removeAtIndex(selectedFriends.indexOf(filteredUsers[indexPath.row])!)
+                    self.tableView.reloadData()
+                }
+                else
+                {
+                    selectedFriends.append(filteredUsers[indexPath.row])
+                    self.tableView.reloadData()
+                }
+                self.searchDisplayController?.active = false
+            }
         }
         else
         {
@@ -113,22 +140,15 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             {
                 if cell!.accessoryType == UITableViewCellAccessoryType.Checkmark
                 {
-                    // selectedFriends.removeAtIndex(selectedFriends.indexOf((cell?.textLabel?.text)!)!)
                     selectedFriends.removeAtIndex(selectedFriends.indexOf(users[indexPath.row])!)
                     cell!.accessoryType = UITableViewCellAccessoryType.None
                 }
                 else
                 {
-                    // let selectedUser = self.users[indexPath.row]
-                    // selectedFriends.append((selectedUser["username"] as? String)!)
-                    selectedFriends.append(self.users[indexPath.row])
+                    selectedFriends.append(users[indexPath.row])
                     cell!.accessoryType = UITableViewCellAccessoryType.Checkmark
                 }
                 
-            }
-            else
-            {
-                cell!.accessoryType = UITableViewCellAccessoryType.None
             }
         }
     }
