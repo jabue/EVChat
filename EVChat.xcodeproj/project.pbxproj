@@ -44,6 +44,7 @@
 		2F75EF431BAC89EA005C167E /* profile_blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F75EF421BAC89EA005C167E /* profile_blank@2x.png */; };
 		2F9B28AF1BAA192200801EF9 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9B28AE1BAA192200801EF9 /* MessageViewController.swift */; };
 		2FF3767C1BA79E850012AB0E /* AddFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3767B1BA79E850012AB0E /* AddFriends.swift */; };
+		2FF70D131BDAB60800C93AFF /* JBContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF70D121BDAB60800C93AFF /* JBContactList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		2F75EF421BAC89EA005C167E /* profile_blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile_blank@2x.png"; path = "Resources/profile_blank@2x.png"; sourceTree = "<group>"; };
 		2F9B28AE1BAA192200801EF9 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		2FF3767B1BA79E850012AB0E /* AddFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriends.swift; sourceTree = "<group>"; };
+		2FF70D121BDAB60800C93AFF /* JBContactList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JBContactList.swift; sourceTree = "<group>"; };
 		95801E651BC18AC46751905D /* Pods-EVChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-EVChat/Pods-EVChat.release.xcconfig"; sourceTree = "<group>"; };
 		FB039FAB34A96EF36BE1C152 /* Pods_EVChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EVChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF926EB22E9235F2AE632268 /* Pods-EVChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EVChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EVChat/Pods-EVChat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				01CB5F8E1BA9380C00059F98 /* EVChat-Bridging-Header.h */,
 				2F9B28AE1BAA192200801EF9 /* MessageViewController.swift */,
 				2F4AE17C1BD59AB20076EFC7 /* JBChatMainView.swift */,
+				2FF70D121BDAB60800C93AFF /* JBContactList.swift */,
 			);
 			path = EVChat;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 			files = (
 				2F6F52C11BA895FC0091E3AF /* PushInside.swift in Sources */,
 				013E6AD21BAF741500F7B675 /* MessageAction.swift in Sources */,
+				2FF70D131BDAB60800C93AFF /* JBContactList.swift in Sources */,
 				2F4AE17D1BD59AB20076EFC7 /* JBChatMainView.swift in Sources */,
 				2F13C88D1BA23D3200A0713D /* AppDelegate.swift in Sources */,
 				2FF3767C1BA79E850012AB0E /* AddFriends.swift in Sources */,
