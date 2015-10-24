@@ -12,6 +12,8 @@ import Parse
 class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    // PFUsers Array
+    var users = [PFUser]()
     
     // user structure
     class User: NSObject {
@@ -33,6 +35,7 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
     }
     
     // raw user data
+    var userNames = [String]()
     let names = [
         "Clementine",
         "Bessie",
@@ -59,11 +62,43 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // load chat user friends
+        if PFUser.currentUser() != nil {
+            self.loadUsers()
+        } else {
+            print("user is not login !")
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Backend methods
+    // load users from parse server
+    func loadUsers() {
+        let user = PFUser.currentUser()
+        let query = PFUser.query()
+        query!.whereKey("objectId", notEqualTo: user!.objectId!)
+        query!.orderByAscending("username")
+        query!.limit = 1000
+        query!.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
+            if error == nil {
+                self.users.removeAll(keepCapacity: false)
+                self.userNames.removeAll(keepCapacity: false)
+                self.users += objects as! [PFUser]!
+                // init userName Array
+                for user in self.users {
+                    self.userNames.append(user["username"] as! String)
+                }
+                self.sections = self.fillSections()
+                self.tableView.reloadData()
+            } else {
+                
+            }
+        }
     }
     
     // `UIKit` convenience class for sectioning a table
@@ -73,14 +108,16 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
     var _sections: [Section]?
     
     // table sections
-    var sections: [Section] {
+    var sections = [Section]()
+    
+    func fillSections() -> [Section]{
         // return if already initialized
         if self._sections != nil {
             return self._sections!
         }
         
         // create users from the name list
-        var users: [User] = names.map { name in
+        var users: [User] = userNames.map { name in
             var user = User(name: name)
             user.section = self.collation.sectionForObject(user, collationStringSelector: "name")
             return user
