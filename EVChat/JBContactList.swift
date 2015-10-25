@@ -153,6 +153,7 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         let selectedUser = self.sections[indexPath.section].users[indexPath.row]
         // put selected use in selectedFriends Array
+        selectedFriends.removeAll(keepCapacity: false)
         selectedFriends.append(userNameToPF[selectedUser.name]!)
         selectedFriends.append(PFUser.currentUser()!)
         
