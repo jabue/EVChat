@@ -12,10 +12,16 @@ import Parse
 class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    // PFUsers Array
+    // PFUsers, used to store PFusers get from remote server
     var users = [PFUser]()
+    // raw user data, used to make sections for the table
+    var userNames = [String]()
+    // used to make connections for names and PFUsers
+    var userNameToPF = [String: PFUser]()
+    // used to put selected item
+    var selectedFriends = [PFUser]()
     
-    // user structure
+    // user structure, used to make sections for tableView
     class User: NSObject {
         let name: String
         var section: Int?
@@ -25,7 +31,7 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    // custom type to represent table sections
+    // sections structure, used to make sections for tableView
     class Section {
         var users: [User] = []
         
@@ -33,32 +39,8 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
             self.users.append(user)
         }
     }
-    
-    // raw user data
-    var userNames = [String]()
-    let names = [
-        "Clementine",
-        "Bessie",
-        "Yolande",
-        "Tynisha",
-        "Ellyn",
-        "Trudy",
-        "Fredrick",
-        "Letisha",
-        "Ariel",
-        "Bong",
-        "Jacinto",
-        "Dorinda",
-        "Aiko",
-        "Loma",
-        "Augustina",
-        "Margarita",
-        "Jesenia",
-        "Kellee",
-        "Annis",
-        "Charlena"
-    ]
-    
+
+    // override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -88,10 +70,12 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
             if error == nil {
                 self.users.removeAll(keepCapacity: false)
                 self.userNames.removeAll(keepCapacity: false)
+                self.userNameToPF.removeAll(keepCapacity: false)
                 self.users += objects as! [PFUser]!
                 // init userName Array
                 for user in self.users {
                     self.userNames.append(user["username"] as! String)
+                    self.userNameToPF[user["username"] as! String] = user
                 }
                 self.sections = self.fillSections()
                 self.tableView.reloadData()
@@ -101,7 +85,7 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    // `UIKit` convenience class for sectioning a table
+    // UIKit convenience class for sectioning a table
     let collation = UILocalizedIndexedCollation.currentCollation()
         as UILocalizedIndexedCollation
     
@@ -110,6 +94,7 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
     // table sections
     var sections = [Section]()
     
+    // function used to init sections
     func fillSections() -> [Section]{
         // return if already initialized
         if self._sections != nil {
@@ -151,14 +136,12 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
             return self.sections.count
     }
     
-    func tableView(tableView: UITableView,
-        numberOfRowsInSection section: Int)
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int)
         -> Int {
             return self.sections[section].users.count
     }
     
-    func tableView(tableView: UITableView,
-        cellForRowAtIndexPath indexPath: NSIndexPath)
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
         -> UITableViewCell {
             let user = self.sections[indexPath.section].users[indexPath.row]
             
@@ -167,10 +150,18 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
             return cell
     }
     
-    /* section headers
-    appear above each `UITableView` section */
-    func tableView(tableView: UITableView,
-        titleForHeaderInSection section: Int)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        let selectedUser = self.sections[indexPath.section].users[indexPath.row]
+        // put selected use in selectedFriends Array
+        selectedFriends.append(userNameToPF[selectedUser.name]!)
+        selectedFriends.append(PFUser.currentUser()!)
+        
+        let groupId = MessageAction.startMultipleChat(selectedFriends)
+        self.performSegueWithIdentifier("openchat", sender: groupId)
+    }
+    
+    // section headers
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int)
         -> String {
             // do not display empty `Section`s
             if !self.sections[section].users.isEmpty {
@@ -183,10 +174,22 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
         return self.collation.sectionIndexTitles
     }
     
-    func tableView(tableView: UITableView,
-        sectionForSectionIndexTitle title: String,
+    func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String,
         atIndex index: Int)
         -> Int {
             return self.collation.sectionForSectionIndexTitleAtIndex(index)
+    }
+    
+    // MARK: - Prepare for segue to chatVC
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "openchat" {
+            // do some setup for the Chat view
+            let nav = segue.destinationViewController as! UINavigationController
+            let ChatView = nav.topViewController as! MessageViewController
+            
+            let groupId = sender as! String
+            ChatView.groupId = groupId
+        }
+        
     }
 }
