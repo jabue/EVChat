@@ -31,6 +31,9 @@ class JBChatMainView: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        // adjust table row's height
+        self.tableView.rowHeight = 70
+        self.searchDisplayController?.searchResultsTableView.rowHeight = 70
         
         // loadMessages from server
         if PFUser.currentUser() != nil {
@@ -100,7 +103,7 @@ class JBChatMainView: UIViewController, UITableViewDataSource, UITableViewDelega
     {
         
         // let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell")!
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! JBMessageCell
         
         var message: PFObject
         if (tableView == self.searchDisplayController?.searchResultsTableView)
@@ -111,7 +114,8 @@ class JBChatMainView: UIViewController, UITableViewDataSource, UITableViewDelega
         {
             message = messages[indexPath.row]
         }
-        cell.textLabel?.text = message["description"] as! String
+        // cell.textLabel?.text = message["description"] as! String
+        cell.bindData(message)
         return cell
     }
     
@@ -131,6 +135,8 @@ class JBChatMainView: UIViewController, UITableViewDataSource, UITableViewDelega
             message = messages[indexPath.row]
         }
         let groupId = message["groupId"] as! String
+        // cancel search action
+        self.searchDisplayController!.active = false
         self.performSegueWithIdentifier("OpenChat", sender: groupId)
     }
     
@@ -173,7 +179,7 @@ class JBChatMainView: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: search
     // function used to filter search string
-    func filterContentForSearchText(searchText: String, scope: String = "Title") {
+    func filterContentForSearchText(searchText: String) {
         // Filter the array using the filter method
         self.filteredMessage = self.messages.filter({( msg: PFObject) -> Bool in
             let msgName = msg["description"] as! String
@@ -183,12 +189,12 @@ class JBChatMainView: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
-        self.filterContentForSearchText(searchString, scope: "Title")
+        self.filterContentForSearchText(searchString)
         return true
     }
     
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
-        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text!, scope: "Title")
+        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text!)
         return true
     }
     
