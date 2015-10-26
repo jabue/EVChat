@@ -14,6 +14,8 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
     @IBOutlet weak var tableView: UITableView!
     // PFUsers, used to store PFusers get from remote server
     var users = [PFUser]()
+    // used to hold search reasult
+    var filteredUsers = [PFUser]()
     // raw user data, used to make sections for the table
     var userNames = [String]()
     // used to make connections for names and PFUsers
@@ -133,29 +135,63 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
     // table view data source
     func numberOfSectionsInTableView(tableView: UITableView)
         -> Int {
-            return self.sections.count
+            if(tableView == self.searchDisplayController?.searchResultsTableView)
+            {
+                return 1
+            }
+            else
+            {
+                return self.sections.count
+            }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int)
         -> Int {
-            return self.sections[section].users.count
+            if(tableView == self.searchDisplayController?.searchResultsTableView)
+            {
+                return filteredUsers.count
+            }
+            else
+            {
+                return self.sections[section].users.count
+            }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
         -> UITableViewCell {
-            let user = self.sections[indexPath.section].users[indexPath.row]
+            let cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")!
+            var user: PFUser
+            if(tableView == self.searchDisplayController?.searchResultsTableView)
+            {
+               user = filteredUsers[indexPath.row]
+            }
+            else
+            {
+                let temp = self.sections[indexPath.section].users[indexPath.row]
+                user = userNameToPF[temp.name]!
+            }
             
-            let cell = self.tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-            cell.textLabel!.text = user.name
+            cell.textLabel!.text = user["username"] as? String
             return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        let selectedUser = self.sections[indexPath.section].users[indexPath.row]
+        var user: PFUser
+        if(tableView == self.searchDisplayController?.searchResultsTableView)
+        {
+            user = filteredUsers[indexPath.row]
+        }
+        else
+        {
+            let temp = self.sections[indexPath.section].users[indexPath.row]
+            user = userNameToPF[temp.name]!
+        }
         // put selected use in selectedFriends Array
         selectedFriends.removeAll(keepCapacity: false)
-        selectedFriends.append(userNameToPF[selectedUser.name]!)
+        selectedFriends.append(user)
         selectedFriends.append(PFUser.currentUser()!)
+        // cancel search action
+        self.searchDisplayController!.active = false
         
         let groupId = MessageAction.startMultipleChat(selectedFriends)
         self.performSegueWithIdentifier("openchat", sender: groupId)
@@ -164,6 +200,10 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
     // section headers
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int)
         -> String {
+            if(tableView == self.searchDisplayController?.searchResultsTableView)
+            {
+                return ""
+            }
             // do not display empty `Section`s
             if !self.sections[section].users.isEmpty {
                 return self.collation.sectionTitles[section] as String
@@ -172,6 +212,10 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
     }
     
     func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+        if(tableView == self.searchDisplayController?.searchResultsTableView)
+        {
+            return []
+        }
         return self.collation.sectionIndexTitles
     }
     
@@ -179,6 +223,27 @@ class JBContactList: UIViewController, UITableViewDataSource, UITableViewDelegat
         atIndex index: Int)
         -> Int {
             return self.collation.sectionForSectionIndexTitleAtIndex(index)
+    }
+    
+    // MARK: search
+    // function used to filter search string
+    func filterContentForSearchText(searchText: String) {
+        // Filter the array using the filter method
+        self.filteredUsers = self.users.filter({( user: PFUser) -> Bool in
+            let userName = user["username"] as! String
+            let stringMatch = userName.rangeOfString(searchText)
+            return (stringMatch != nil)
+        })
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        self.filterContentForSearchText(searchString)
+        return true
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text!)
+        return true
     }
     
     // MARK: - Prepare for segue to chatVC

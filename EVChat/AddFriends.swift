@@ -23,6 +23,7 @@ class AddFriends: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     // PFUsers Array
     var users = [PFUser]()
+    // used to hold search reasult
     var filteredUsers = [PFUser]()
     // used to put selected item
     var selectedFriends = [PFUser]()

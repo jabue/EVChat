@@ -58,7 +58,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="80B-yN-caJ"/>
                                 </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UyC-VO-W1l">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UyC-VO-W1l">
                                 <rect key="frame" x="0.0" y="92" width="600" height="459"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -101,9 +101,9 @@
                             <constraint firstItem="UyC-VO-W1l" firstAttribute="top" secondItem="LHk-R9-KRs" secondAttribute="bottom" id="3nj-FR-dp7"/>
                             <constraint firstItem="UyC-VO-W1l" firstAttribute="trailing" secondItem="LHk-R9-KRs" secondAttribute="trailing" id="7Mb-og-hnI"/>
                             <constraint firstItem="LXZ-p4-LOG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="MMn-vK-fjo"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UyC-VO-W1l" secondAttribute="bottom" id="cry-lh-qb5"/>
                             <constraint firstItem="UyC-VO-W1l" firstAttribute="leading" secondItem="LHk-R9-KRs" secondAttribute="leading" id="fZ7-DU-60n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LXZ-p4-LOG" secondAttribute="trailing" constant="-20" id="j8u-ee-IPA"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="UyC-VO-W1l" secondAttribute="bottom" id="kr9-to-sZr"/>
                             <constraint firstItem="LHk-R9-KRs" firstAttribute="top" secondItem="LXZ-p4-LOG" secondAttribute="bottom" id="lea-xI-842"/>
                             <constraint firstItem="UyC-VO-W1l" firstAttribute="top" secondItem="LHk-R9-KRs" secondAttribute="bottom" id="vPn-54-XFT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UyC-VO-W1l" secondAttribute="trailing" constant="-20" id="xV0-pM-byG"/>
@@ -443,6 +443,6 @@
         <image name="tab_profile.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XA2-XR-jvF"/>
+        <segue reference="a6p-R2-ahy"/>
     </inferredMetricsTieBreakers>
 </document>
