@@ -20,4 +20,22 @@ class JBProfile: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // change photo cell
+        if (indexPath.section == 0 && indexPath.row == 0) {
+            print("change photo")
+        // chat id
+        }else if (indexPath.section == 1 && indexPath.row == 0) {
+         
+        // email address
+        }else if (indexPath.section == 1 && indexPath.row == 1) {
+        
+        // phone number
+        }else if (indexPath.section == 1 && indexPath.row == 2) {
+         
+        // log out
+        }else if (indexPath.section == 2 && indexPath.row == 0) {
+            
+        }
+    }
 }
