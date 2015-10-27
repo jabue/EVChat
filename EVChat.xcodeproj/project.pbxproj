@@ -35,13 +35,14 @@
 		2F13C8971BA23D3200A0713D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F13C8951BA23D3200A0713D /* LaunchScreen.storyboard */; };
 		2F13C8A21BA23D3200A0713D /* EVChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8A11BA23D3200A0713D /* EVChatTests.swift */; };
 		2F13C8AD1BA23D3200A0713D /* EVChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8AC1BA23D3200A0713D /* EVChatUITests.swift */; };
+		2F1C33BA1BDFF72E004D9C86 /* noneprofile.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1C33B91BDFF72E004D9C86 /* noneprofile.png */; };
+		2F1C33BE1BDFFFDC004D9C86 /* JBProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1C33BD1BDFFFDC004D9C86 /* JBProfile.swift */; };
 		2F4AE17D1BD59AB20076EFC7 /* JBChatMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4AE17C1BD59AB20076EFC7 /* JBChatMainView.swift */; };
 		2F4AE1821BD5A28A0076EFC7 /* tab_group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4AE17E1BD5A28A0076EFC7 /* tab_group@2x.png */; };
 		2F4AE1831BD5A28A0076EFC7 /* tab_messages@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4AE17F1BD5A28A0076EFC7 /* tab_messages@2x.png */; };
 		2F4AE1841BD5A28A0076EFC7 /* tab_private@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4AE1801BD5A28A0076EFC7 /* tab_private@2x.png */; };
 		2F4AE1851BD5A28A0076EFC7 /* tab_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F4AE1811BD5A28A0076EFC7 /* tab_profile@2x.png */; };
 		2F4C86AD1BDEAD9D006EDB89 /* JBMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C86AC1BDEAD9D006EDB89 /* JBMessageCell.swift */; };
-		2F6F52C11BA895FC0091E3AF /* PushInside.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6F52C01BA895FC0091E3AF /* PushInside.swift */; };
 		2F75EF431BAC89EA005C167E /* profile_blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F75EF421BAC89EA005C167E /* profile_blank@2x.png */; };
 		2F9B28AF1BAA192200801EF9 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9B28AE1BAA192200801EF9 /* MessageViewController.swift */; };
 		2FF3767C1BA79E850012AB0E /* AddFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF3767B1BA79E850012AB0E /* AddFriends.swift */; };
@@ -100,13 +101,14 @@
 		2F13C8A81BA23D3200A0713D /* EVChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EVChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F13C8AC1BA23D3200A0713D /* EVChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVChatUITests.swift; sourceTree = "<group>"; };
 		2F13C8AE1BA23D3200A0713D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F1C33B91BDFF72E004D9C86 /* noneprofile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noneprofile.png; path = images/noneprofile.png; sourceTree = "<group>"; };
+		2F1C33BD1BDFFFDC004D9C86 /* JBProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JBProfile.swift; sourceTree = "<group>"; };
 		2F4AE17C1BD59AB20076EFC7 /* JBChatMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JBChatMainView.swift; sourceTree = "<group>"; };
 		2F4AE17E1BD5A28A0076EFC7 /* tab_group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_group@2x.png"; path = "images/tab_group@2x.png"; sourceTree = "<group>"; };
 		2F4AE17F1BD5A28A0076EFC7 /* tab_messages@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_messages@2x.png"; path = "images/tab_messages@2x.png"; sourceTree = "<group>"; };
 		2F4AE1801BD5A28A0076EFC7 /* tab_private@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_private@2x.png"; path = "images/tab_private@2x.png"; sourceTree = "<group>"; };
 		2F4AE1811BD5A28A0076EFC7 /* tab_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab_profile@2x.png"; path = "images/tab_profile@2x.png"; sourceTree = "<group>"; };
 		2F4C86AC1BDEAD9D006EDB89 /* JBMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JBMessageCell.swift; sourceTree = "<group>"; };
-		2F6F52C01BA895FC0091E3AF /* PushInside.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushInside.swift; sourceTree = "<group>"; };
 		2F75EF421BAC89EA005C167E /* profile_blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "profile_blank@2x.png"; path = "Resources/profile_blank@2x.png"; sourceTree = "<group>"; };
 		2F9B28AE1BAA192200801EF9 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		2FF3767B1BA79E850012AB0E /* AddFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriends.swift; sourceTree = "<group>"; };
@@ -204,12 +206,12 @@
 				2F13C8951BA23D3200A0713D /* LaunchScreen.storyboard */,
 				2F13C8981BA23D3200A0713D /* Info.plist */,
 				2FF3767B1BA79E850012AB0E /* AddFriends.swift */,
-				2F6F52C01BA895FC0091E3AF /* PushInside.swift */,
 				01CB5F8E1BA9380C00059F98 /* EVChat-Bridging-Header.h */,
 				2F9B28AE1BAA192200801EF9 /* MessageViewController.swift */,
 				2F4AE17C1BD59AB20076EFC7 /* JBChatMainView.swift */,
 				2FF70D121BDAB60800C93AFF /* JBContactList.swift */,
 				2F4C86AC1BDEAD9D006EDB89 /* JBMessageCell.swift */,
+				2F1C33BD1BDFFFDC004D9C86 /* JBProfile.swift */,
 			);
 			path = EVChat;
 			sourceTree = "<group>";
@@ -235,6 +237,7 @@
 		2F4AE1871BD5A2A20076EFC7 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2F1C33B91BDFF72E004D9C86 /* noneprofile.png */,
 				2F4AE17E1BD5A28A0076EFC7 /* tab_group@2x.png */,
 				2F4AE17F1BD5A28A0076EFC7 /* tab_messages@2x.png */,
 				2F4AE1801BD5A28A0076EFC7 /* tab_private@2x.png */,
@@ -397,6 +400,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F1C33BA1BDFF72E004D9C86 /* noneprofile.png in Resources */,
 				2F4AE1841BD5A28A0076EFC7 /* tab_private@2x.png in Resources */,
 				2F4AE1821BD5A28A0076EFC7 /* tab_group@2x.png in Resources */,
 				2F13C8971BA23D3200A0713D /* LaunchScreen.storyboard in Resources */,
@@ -477,7 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F6F52C11BA895FC0091E3AF /* PushInside.swift in Sources */,
+				2F1C33BE1BDFFFDC004D9C86 /* JBProfile.swift in Sources */,
 				013E6AD21BAF741500F7B675 /* MessageAction.swift in Sources */,
 				2FF70D131BDAB60800C93AFF /* JBContactList.swift in Sources */,
 				2F4AE17D1BD59AB20076EFC7 /* JBChatMainView.swift in Sources */,

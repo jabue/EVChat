@@ -1,17 +1,14 @@
 //
-//  PushInside.swift
+//  JBProfile.swift
 //  EVChat
 //
-//  Created by EV Technologies Inc. on 2015-09-15.
+//  Created by EV Technologies Inc. on 2015-10-27.
 //  Copyright © 2015 EV Technologies Inc. All rights reserved.
 //
 
 import UIKit
 
-class PushInside: UIViewController {
-    
-    
-    @IBOutlet weak var BtnCancel: UIButton!
+class JBProfile: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +18,6 @@ class PushInside: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    //MARK: Button Cancel
-    @IBAction func btnCancelPress(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

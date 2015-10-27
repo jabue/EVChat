@@ -23,7 +23,7 @@ class JBMessageCell: UITableViewCell {
         userImage.layer.masksToBounds = true
         
         let lastUser = message["lastUser"] as? PFUser
-        userImage.image = UIImage(named: "profile_blank@2x.png")
+        userImage.image = UIImage(named: "noneprofile.png")
         
         descriptionLabel.text = message["description"] as? String
         lastMessageLabel.text = message["lastMessage"] as? String
