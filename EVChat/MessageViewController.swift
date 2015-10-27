@@ -124,6 +124,7 @@ class MessageViewController: JSQMessagesViewController {
     // send message func
     func sendMessage(var text: String) {
         
+        // add chat to server
         var object = PFObject(className: "Chat")
         object["user"] = PFUser.currentUser()
         object["groupId"] = self.groupId
@@ -136,6 +137,20 @@ class MessageViewController: JSQMessagesViewController {
                 print("Failed to send message !")
             }
         }
+        // add last message to server
+        var query = PFQuery(className:"Messages")
+        query.whereKey("groupId", equalTo: groupId)
+        query.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
+            if error == nil {
+                for object in (objects as! [PFObject]!) {
+                    object["lastMessage"] = text
+                    object.saveInBackground()
+                }
+            } else {
+                print("Load Message Wrong !")
+            }
+            self.isLoading = false;
+        })
         
         self.finishSendingMessage()
     }
