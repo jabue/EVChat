@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class JBProfile: UITableViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -77,24 +78,36 @@ class JBProfile: UITableViewController,UINavigationControllerDelegate, UIImagePi
     // func for redirecting a camera
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         photoTaker.dismissViewControllerAnimated(true, completion: nil)
-        print("Camera off...")
         self.photoTemp = info[UIImagePickerControllerOriginalImage] as! UIImage
+        if photoTemp.size.width > 280 {
+            photoTemp = Image.resizeImage(photoTemp, width: 280, height: 280)!
+        }
+        
+        // put it to PFFile, get prepared before store to server
+        var pictureFile = PFFile(name: "picture.jpg", data: UIImageJPEGRepresentation(photoTemp, 0.6)!)
+//        pictureFile.saveInBackgroundWithBlock { (returnedResult, returnedError) -> Void in
+//            if returnedError != nil {
+//                print("store picture.jpg fail.")
+//            }
+//        }
+        
+        // pass photo to imageView
         self.selfPhoto.image = self.photoTemp
         
-        // set photo to upload url
-        // let testFileURL1 = NSURL(fileURLWithPath: NSTemporaryDirectory().stringByAppendingString("temp"))
-        // let uploadRequest1: AWSS3TransferManagerUploadRequest = AWSS3TransferManagerUploadRequest()
+        if photoTemp.size.width > 60 {
+            photoTemp = Image.resizeImage(photoTemp, width: 60, height: 60)!
+        }
+        // generate thumbnail picture of user
+        var thumbnailFile = PFFile(name: "thumbnail.jpg", data: UIImageJPEGRepresentation(photoTemp, 0.6)!)
+        var user : PFUser = PFUser.currentUser()!
+        user["picture"] = pictureFile
+        user["thumbnail"] = thumbnailFile
+        user.saveInBackgroundWithBlock { (returnedResult, returnedError) -> Void in
+            if returnedError != nil {
+                print("store both picture fail")
+            }
+        }
         
-        // let data = UIImageJPEGRepresentation(self.selfPhoto, 0.2)
-        // data?.writeToURL(testFileURL1, atomically: true)
-        // uploadRequest1.bucket = "sefietest"
-        // uploadRequest1.key = "test1"
-        // uploadRequest1.body = testFileURL1
-        
-        // self.upload(uploadRequest1)
-        
-        
-        //selfImage.image = info[UIImagePickerControllerOriginalImage] as! UIImage
         tableView.reloadData()
     }
 }

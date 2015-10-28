@@ -19,6 +19,7 @@ class JBMessageCell: UITableViewCell {
     @IBOutlet weak var counterLabel: UILabel!
     
     func bindData(message: PFObject) {
+        // round user image
         userImage.layer.cornerRadius = userImage.frame.size.width / 2
         userImage.layer.masksToBounds = true
         

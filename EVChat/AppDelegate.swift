@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // UserAction.userLogout()
         // UserAction.userLogin("jabue", password: "jabue")
-        // UserAction.userSignup("victor", password: "victor", email: "testvictor@163.com")
+        // UserAction.userSignup("lucia", password: "lucia", email: "lucia@163.com")
         return true
     }
 
