@@ -8,7 +8,10 @@
 
 import UIKit
 
-class JBProfile: UITableViewController {
+class JBProfile: UITableViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    // photo taking
+    var photoTaker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +23,38 @@ class JBProfile: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Mark: tableview func
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // change photo cell
         if (indexPath.section == 0 && indexPath.row == 0) {
-            print("change photo")
+            let actionSheetController: UIAlertController = UIAlertController(title: "Change Photo", message: "Please choose from one of the following options", preferredStyle: .ActionSheet)
+            
+            // add the Cancel action
+            let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+                //Just dismiss the action sheet
+            }
+            actionSheetController.addAction(cancelAction)
+            
+            // add first option action
+            let takePictureAction: UIAlertAction = UIAlertAction(title: "Take A Picture", style: .Default) { action -> Void in
+                //Code for launching the camera goes here
+                
+                self.photoTaker = UIImagePickerController()
+                self.photoTaker.delegate = self
+                self.photoTaker.sourceType = .Camera
+                
+                self.presentViewController(self.photoTaker, animated: true, completion: nil)
+                
+            }
+            actionSheetController.addAction(takePictureAction)
+            // add a second option action
+            let choosePictureAction: UIAlertAction = UIAlertAction(title: "From the Gallery", style: .Default) { action -> Void in
+                //Code for picking from camera roll goes here
+            }
+            actionSheetController.addAction(choosePictureAction)
+            
+            //Present the AlertController
+            self.presentViewController(actionSheetController, animated: true, completion: nil)
         // chat id
         }else if (indexPath.section == 1 && indexPath.row == 0) {
          
@@ -37,5 +68,30 @@ class JBProfile: UITableViewController {
         }else if (indexPath.section == 2 && indexPath.row == 0) {
             
         }
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    // Mark: backend func
+    // func for redirecting a camera
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        photoTaker.dismissViewControllerAnimated(true, completion: nil)
+        print("Camera off...")
+        // self.selfPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        // set photo to upload url
+        // let testFileURL1 = NSURL(fileURLWithPath: NSTemporaryDirectory().stringByAppendingString("temp"))
+        // let uploadRequest1: AWSS3TransferManagerUploadRequest = AWSS3TransferManagerUploadRequest()
+        
+        // let data = UIImageJPEGRepresentation(self.selfPhoto, 0.2)
+        // data?.writeToURL(testFileURL1, atomically: true)
+        // uploadRequest1.bucket = "sefietest"
+        // uploadRequest1.key = "test1"
+        // uploadRequest1.body = testFileURL1
+        
+        // self.upload(uploadRequest1)
+        
+        
+        //selfImage.image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        tableView.reloadData()
     }
 }
