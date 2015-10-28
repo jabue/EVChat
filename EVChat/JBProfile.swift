@@ -10,8 +10,10 @@ import UIKit
 
 class JBProfile: UITableViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    @IBOutlet weak var selfPhoto: UIImageView!
     // photo taking
     var photoTaker: UIImagePickerController!
+    var photoTemp: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +78,8 @@ class JBProfile: UITableViewController,UINavigationControllerDelegate, UIImagePi
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         photoTaker.dismissViewControllerAnimated(true, completion: nil)
         print("Camera off...")
-        // self.selfPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.photoTemp = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.selfPhoto.image = self.photoTemp
         
         // set photo to upload url
         // let testFileURL1 = NSURL(fileURLWithPath: NSTemporaryDirectory().stringByAppendingString("temp"))
