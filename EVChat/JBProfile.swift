@@ -19,6 +19,7 @@ class JBProfile: UITableViewController,UINavigationControllerDelegate, UIImagePi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        // load user picture from remote server
         let user: PFUser = PFUser.currentUser()!
         let imageFile: PFFile = user["picture"] as! PFFile
         imageFile.getDataInBackgroundWithBlock({
