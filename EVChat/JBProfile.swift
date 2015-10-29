@@ -80,7 +80,26 @@ class JBProfile: UITableViewController,UINavigationControllerDelegate, UIImagePi
          
         // log out
         }else if (indexPath.section == 2 && indexPath.row == 0) {
+            let actionSheetController: UIAlertController = UIAlertController(title: "log out", message: "Do you want to log out?", preferredStyle: .ActionSheet)
             
+            // add the Cancel action
+            let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+                //Just dismiss the action sheet
+            }
+            actionSheetController.addAction(cancelAction)
+            
+            // add a logout option action
+            let logoutAction: UIAlertAction = UIAlertAction(title: "log out", style: .Default) { action -> Void in
+                UserAction.userLogout()
+                // show user login view
+                let myStoryBoard = self.storyboard
+                let loginView:UIViewController = (myStoryBoard?.instantiateViewControllerWithIdentifier("loginview"))! as UIViewController
+                self.presentViewController(loginView, animated: true, completion: nil)
+            }
+            actionSheetController.addAction(logoutAction)
+            
+            //Present the AlertController
+            self.presentViewController(actionSheetController, animated: true, completion: nil)
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }

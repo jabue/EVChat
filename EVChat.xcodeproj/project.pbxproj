@@ -35,6 +35,8 @@
 		2F13C8971BA23D3200A0713D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F13C8951BA23D3200A0713D /* LaunchScreen.storyboard */; };
 		2F13C8A21BA23D3200A0713D /* EVChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8A11BA23D3200A0713D /* EVChatTests.swift */; };
 		2F13C8AD1BA23D3200A0713D /* EVChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F13C8AC1BA23D3200A0713D /* EVChatUITests.swift */; };
+		2F1698F51BE2A3D300FBB669 /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1698F41BE2A3D300FBB669 /* Welcome.swift */; };
+		2F1698F71BE2A52700FBB669 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1698F61BE2A52700FBB669 /* LoginView.swift */; };
 		2F1C33BA1BDFF72E004D9C86 /* noneprofile.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1C33B91BDFF72E004D9C86 /* noneprofile.png */; };
 		2F1C33BE1BDFFFDC004D9C86 /* JBProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1C33BD1BDFFFDC004D9C86 /* JBProfile.swift */; };
 		2F4AE17D1BD59AB20076EFC7 /* JBChatMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4AE17C1BD59AB20076EFC7 /* JBChatMainView.swift */; };
@@ -102,6 +104,8 @@
 		2F13C8A81BA23D3200A0713D /* EVChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EVChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F13C8AC1BA23D3200A0713D /* EVChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVChatUITests.swift; sourceTree = "<group>"; };
 		2F13C8AE1BA23D3200A0713D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F1698F41BE2A3D300FBB669 /* Welcome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
+		2F1698F61BE2A52700FBB669 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2F1C33B91BDFF72E004D9C86 /* noneprofile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noneprofile.png; path = images/noneprofile.png; sourceTree = "<group>"; };
 		2F1C33BD1BDFFFDC004D9C86 /* JBProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JBProfile.swift; sourceTree = "<group>"; };
 		2F4AE17C1BD59AB20076EFC7 /* JBChatMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JBChatMainView.swift; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 				2FF70D121BDAB60800C93AFF /* JBContactList.swift */,
 				2F4C86AC1BDEAD9D006EDB89 /* JBMessageCell.swift */,
 				2F1C33BD1BDFFFDC004D9C86 /* JBProfile.swift */,
+				2F1698F41BE2A3D300FBB669 /* Welcome.swift */,
+				2F1698F61BE2A52700FBB669 /* LoginView.swift */,
 			);
 			path = EVChat;
 			sourceTree = "<group>";
@@ -485,10 +491,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F1C33BE1BDFFFDC004D9C86 /* JBProfile.swift in Sources */,
+				2F1698F51BE2A3D300FBB669 /* Welcome.swift in Sources */,
 				013E6AD21BAF741500F7B675 /* MessageAction.swift in Sources */,
 				2FF70D131BDAB60800C93AFF /* JBContactList.swift in Sources */,
 				2F4AE17D1BD59AB20076EFC7 /* JBChatMainView.swift in Sources */,
 				2F4C86AD1BDEAD9D006EDB89 /* JBMessageCell.swift in Sources */,
+				2F1698F71BE2A52700FBB669 /* LoginView.swift in Sources */,
 				2F13C88D1BA23D3200A0713D /* AppDelegate.swift in Sources */,
 				2FF3767C1BA79E850012AB0E /* AddFriends.swift in Sources */,
 				013E6AD01BAF3B8700F7B675 /* UserAction.swift in Sources */,
