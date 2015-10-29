@@ -21,10 +21,10 @@ class UserAction {
         // add extra info of user
         user["phone"] = "778-334-0000"
         // give user a defult picture
-        var image = UIImage(named: "profile_blank")
-        let imageData = UIImagePNGRepresentation(image!)
-        let imageFile = PFFile(name:"image.png", data:imageData!)
-        user["picture"] = imageFile
+        // var image = UIImage(named: "profile_blank")
+        // let imageData = UIImagePNGRepresentation(image!)
+        // let imageFile = PFFile(name:"image.png", data:imageData!)
+        // user["picture"] = imageFile
         user.signUpInBackgroundWithBlock { (returnedResult, returnedError) -> Void in
             if returnedError == nil {
                 print("user:" + "\(username)" + " sign up successfully!")

@@ -19,6 +19,16 @@ class JBProfile: UITableViewController,UINavigationControllerDelegate, UIImagePi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let user: PFUser = PFUser.currentUser()!
+        let imageFile: PFFile = user["picture"] as! PFFile
+        imageFile.getDataInBackgroundWithBlock({
+            (imageData, error) -> Void in
+            if (error == nil) {
+                let userImage = UIImage(data: imageData!)
+                self.selfPhoto.image = userImage
+                self.tableView.reloadData()
+            }
+        })
     }
     
     override func didReceiveMemoryWarning() {

@@ -568,7 +568,7 @@
                     <navigationItem key="navigationItem" title="My Profile" id="jPU-o1-TID"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="selfPhoto" destination="MjG-sP-h22" id="LAu-QB-ie4"/>
+                        <outlet property="selfPhoto" destination="MjG-sP-h22" id="hy3-qB-U37"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8NV-hs-F95" userLabel="First Responder" sceneMemberID="firstResponder"/>
